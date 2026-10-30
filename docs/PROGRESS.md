@@ -543,3 +543,11 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - Web export (proto as temporary main): load OK; 1?>2?; btn click increments.
 - Screenshots `docs/screens/ui_proto_s{1,2,3}.png`. Scene deleted after gate.
 - Status: done (gate passed).
+
+### v0.3 Scale UI — Step 3
+
+- Created `data/ui_scale.json` (S1 from inventory IR-15; S2/S3 from TZ).
+- Autoload `UiScale` (`src/core/ui_scale.gd`), `UiRoot.tscn` + `ui_root.gd`, `screen_base.gd`, `scale_visibility.gd`, `world_clip.gd`.
+- `Fmt.name` added. Screens not moved yet.
+- T1/T4 green (`tests/test_ui_scale_api.gd`, `tests/test_ui_world_rect.gd`).
+- Status: done.

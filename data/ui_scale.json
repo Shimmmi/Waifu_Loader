@@ -1,0 +1,54 @@
+{
+  "scales": {
+    "1": {
+      "hud_h": 24,
+      "nav_h": 25,
+      "toolbar_h": 41,
+      "btn_h": 25,
+      "row_h": 24,
+      "pad": 6,
+      "gap": 2,
+      "bar_h": 8,
+      "scroll_w": 12,
+      "panel_margin": 6,
+      "portrait_px": 96,
+      "max_name_chars": 18,
+      "rush_btn_w": 46,
+      "scale_btn_w": 32
+    },
+    "2": {
+      "hud_h": 16,
+      "nav_h": 16,
+      "toolbar_h": 16,
+      "btn_h": 14,
+      "row_h": 16,
+      "pad": 2,
+      "gap": 2,
+      "bar_h": 4,
+      "scroll_w": 6,
+      "panel_margin": 3,
+      "portrait_px": 48,
+      "max_name_chars": 11,
+      "rush_btn_w": 36,
+      "touch_min": 12,
+      "scale_btn_w": 28
+    },
+    "3": {
+      "hud_h": 12,
+      "nav_h": 14,
+      "toolbar_h": 0,
+      "btn_h": 10,
+      "row_h": 16,
+      "pad": 2,
+      "gap": 1,
+      "bar_h": 3,
+      "scroll_w": 4,
+      "panel_margin": 2,
+      "portrait_px": 48,
+      "max_name_chars": 8,
+      "rush_btn_w": 12,
+      "touch_min": 8,
+      "scale_btn_w": 22
+    }
+  }
+}

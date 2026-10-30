@@ -43,6 +43,13 @@ static func num(value: float, scientific: bool = false) -> String:
 	return sign_str + _trim(scaled) + SUFFIXES[idx]
 
 
+## Truncate a display name to max_chars with ellipsis (TZ v0.3 §2.7 G6).
+static func name(s: String, max_chars: int) -> String:
+	if s.length() <= max_chars:
+		return s
+	return s.substr(0, max_chars - 1) + "…"
+
+
 ## Format a whole number of seconds as mm:ss or h:mm:ss.
 static func time(seconds: float) -> String:
 	var total: int = int(max(0.0, floor(seconds)))

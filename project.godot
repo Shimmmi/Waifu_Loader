@@ -27,6 +27,7 @@ GameState="*res://src/state/game_state.gd"
 Loc="*res://src/core/loc.gd"
 Audio="*res://src/core/audio.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+UiScale="*res://src/core/ui_scale.gd"
 
 [display]
 
