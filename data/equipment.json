@@ -1,0 +1,9 @@
+{
+  "families": ["helmet", "gloves", "vest"],
+  "stat_by_family": { "helmet": "wit", "gloves": "str", "vest": "end" },
+  "bonus_by_tier": [4, 8, 13, 19, 26],
+  "parts_cost_by_tier": [20, 80, 180, 320, 500],
+  "credits_cost_by_tier": [500, 2828, 7800, 16600, 31000],
+  "time_min_by_tier": [2, 8, 18, 32, 50],
+  "durability": 30
+}

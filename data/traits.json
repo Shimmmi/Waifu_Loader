@@ -1,0 +1,30 @@
+{
+  "traits": [
+    { "id": "early_bird", "key": "TRT_EARLY_BIRD", "group": "positive", "mods": { "speed_first60": 0.12 } },
+    { "id": "iron_nerves", "key": "TRT_IRON_NERVES", "group": "positive", "mods": { "morale_floor": 30 } },
+    { "id": "golden_hands", "key": "TRT_GOLDEN_HANDS", "group": "positive", "mods": { "defect": -0.30 } },
+    { "id": "coffee_addict", "key": "TRT_COFFEE_ADDICT", "group": "positive", "mods": { "fatigue": -0.15, "canteen_morale": -5 } },
+    { "id": "soul_of_party", "key": "TRT_SOUL_OF_PARTY", "group": "positive", "mods": { "morale_aura": 2 } },
+    { "id": "heavyweight", "key": "TRT_HEAVYWEIGHT", "group": "positive", "mods": { "heavy_penalty": -0.5 } },
+    { "id": "sharp_eye", "key": "TRT_SHARP_EYE", "group": "positive", "mods": { "acc": 0.10 } },
+    { "id": "lucky", "key": "TRT_LUCKY", "group": "positive", "mods": { "check_bonus": 0.05 } },
+    { "id": "mentor", "key": "TRT_MENTOR", "group": "positive", "mods": { "crew_xp": 0.15 } },
+    { "id": "modest", "key": "TRT_MODEST", "group": "positive", "mods": { "wage": -0.15 } },
+    { "id": "tireless", "key": "TRT_TIRELESS", "group": "positive", "mods": { "rush_fatigue": -0.25 } },
+    { "id": "diplomat", "key": "TRT_DIPLOMAT", "group": "positive", "mods": { "relation": 5 } },
+
+    { "id": "talker", "key": "TRT_TALKER", "group": "neutral", "mods": { "morale_aura": 3, "speed": -0.05 } },
+    { "id": "perfectionist", "key": "TRT_PERFECTIONIST", "group": "neutral", "mods": { "acc": 0.15, "speed": -0.10 } },
+    { "id": "rusher", "key": "TRT_RUSHER", "group": "neutral", "mods": { "speed": 0.10, "defect": 0.20 } },
+    { "id": "night_owl", "key": "TRT_NIGHT_OWL", "group": "neutral", "mods": { "half2_speed": 0.10 } },
+    { "id": "collector", "key": "TRT_COLLECTOR", "group": "neutral", "mods": {} },
+    { "id": "paranoid", "key": "TRT_PARANOID", "group": "neutral", "mods": { "trap_detect": 0.20 } },
+    { "id": "homebody", "key": "TRT_HOMEBODY", "group": "neutral", "mods": { "dangerous": -0.10 } },
+    { "id": "athlete", "key": "TRT_ATHLETE", "group": "neutral", "mods": { "train_xp": 0.10, "fatigue": 0.05 } },
+
+    { "id": "lazy", "key": "TRT_LAZY", "group": "hidden", "mods": { "speed": -0.10 } },
+    { "id": "troublemaker", "key": "TRT_TROUBLEMAKER", "group": "hidden", "mods": { "conflict_mult": 2.0 } },
+    { "id": "clumsy", "key": "TRT_CLUMSY", "group": "hidden", "mods": { "injury": 0.5 } },
+    { "id": "thief", "key": "TRT_THIEF", "group": "hidden", "mods": {} }
+  ]
+}

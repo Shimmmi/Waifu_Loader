@@ -1,0 +1,52 @@
+{
+  "linear": [
+    { "id": "lin1", "key": "DIR_HIRE", "goal": { "type": "hires", "value": 1 }, "reward": { "credits_mult": 10, "tokens": 5 } },
+    { "id": "lin2", "key": "DIR_UPGRADE", "goal": { "type": "upgrades", "value": 1 }, "reward": { "credits_mult": 10, "tokens": 5 } },
+    { "id": "lin3", "key": "DIR_SHIFT", "goal": { "type": "shifts_total", "value": 1 }, "reward": { "credits_mult": 10, "tokens": 5 } },
+    { "id": "lin4", "key": "DIR_PLACE", "goal": { "type": "slots_filled", "value": 3 }, "reward": { "credits_mult": 10, "tokens": 5 } },
+    { "id": "lin5", "key": "DIR_RUSH", "goal": { "type": "rushes", "value": 3 }, "reward": { "credits_mult": 12, "tokens": 5 } },
+    { "id": "lin6", "key": "DIR_EXPAND", "goal": { "type": "expansions", "value": 1 }, "reward": { "credits_mult": 12, "tokens": 8 } },
+    { "id": "lin7", "key": "DIR_CONTRACT", "goal": { "type": "contracts_done", "value": 1 }, "reward": { "credits_mult": 12, "tokens": 8 } },
+    { "id": "lin8", "key": "DIR_EVENT", "goal": { "type": "events_seen", "value": 1 }, "reward": { "credits_mult": 12, "tokens": 8 } },
+    { "id": "lin9", "key": "DIR_DOCK2", "goal": { "type": "dock_level", "value": 2 }, "reward": { "credits_mult": 12, "tokens": 8 } },
+    { "id": "lin10", "key": "DIR_LINEUP", "goal": { "type": "slots_filled", "value": 5 }, "reward": { "credits_mult": 12, "tokens": 10 } },
+    { "id": "lin11", "key": "DIR_GRADE", "goal": { "type": "grade_s", "value": 1 }, "reward": { "credits_mult": 15, "tokens": 10 } },
+    { "id": "lin12", "key": "DIR_SYNERGY", "goal": { "type": "synergy", "value": 10 }, "reward": { "credits_mult": 15, "tokens": 10 } },
+    { "id": "lin13", "key": "DIR_PARTS", "goal": { "type": "parts_owned", "value": 10 }, "reward": { "credits_mult": 15, "tokens": 10 } },
+    { "id": "lin14", "key": "DIR_RANK", "goal": { "type": "rank", "value": 4 }, "reward": { "credits_mult": 15, "tokens": 12 } },
+    { "id": "lin15", "key": "DIR_GOLD", "goal": { "type": "gold_contracts", "value": 1 }, "reward": { "credits_mult": 15, "tokens": 12 } },
+    { "id": "lin16", "key": "DIR_FIVE_SPECIES", "goal": { "type": "species_all", "value": 3 }, "reward": { "credits_mult": 18, "tokens": 12 } },
+    { "id": "lin17", "key": "DIR_CANTEEN", "goal": { "type": "sectors", "value": 6 }, "reward": { "credits_mult": 18, "tokens": 12 } },
+    { "id": "lin18", "key": "DIR_TWO_LINES", "goal": { "type": "docks", "value": 2 }, "reward": { "credits_mult": 20, "tokens": 15 } },
+    { "id": "lin19", "key": "DIR_RANK10", "goal": { "type": "rank", "value": 10 }, "reward": { "credits_mult": 20, "tokens": 15 } },
+    { "id": "lin20", "key": "DIR_REORG", "goal": { "type": "reorg_count", "value": 1 }, "reward": { "credits_mult": 25, "tokens": 20 } }
+  ],
+  "daily": [
+    { "id": "d1", "key": "DIR_D_S1", "goal": { "type": "shifts_total", "value": 3 }, "reward": { "credits_mult": 10, "rep": 2, "tokens": 5 } },
+    { "id": "d2", "key": "DIR_D_S2", "goal": { "type": "shifts_total", "value": 6 }, "reward": { "credits_mult": 15, "rep": 3, "tokens": 8 } },
+    { "id": "d3", "key": "DIR_D_GOLD", "goal": { "type": "gold_contracts", "value": 1 }, "reward": { "credits_mult": 15, "rep": 3, "tokens": 10 } },
+    { "id": "d4", "key": "DIR_D_CONTRACT", "goal": { "type": "contracts_done", "value": 2 }, "reward": { "credits_mult": 12, "rep": 2, "tokens": 8 } },
+    { "id": "d5", "key": "DIR_D_RUSH", "goal": { "type": "rushes", "value": 5 }, "reward": { "credits_mult": 10, "rep": 1, "tokens": 5 } },
+    { "id": "d6", "key": "DIR_D_HIRE", "goal": { "type": "hires", "value": 2 }, "reward": { "credits_mult": 10, "rep": 2, "tokens": 6 } },
+    { "id": "d7", "key": "DIR_D_UPGRADE", "goal": { "type": "upgrades", "value": 3 }, "reward": { "credits_mult": 12, "rep": 2, "tokens": 6 } },
+    { "id": "d8", "key": "DIR_D_EXPAND", "goal": { "type": "expansions", "value": 1 }, "reward": { "credits_mult": 12, "rep": 3, "tokens": 8 } },
+    { "id": "d9", "key": "DIR_D_EVENTS", "goal": { "type": "events_seen", "value": 2 }, "reward": { "credits_mult": 12, "rep": 2, "tokens": 6 } },
+    { "id": "d10", "key": "DIR_D_SYNERGY", "goal": { "type": "synergy", "value": 10 }, "reward": { "credits_mult": 15, "rep": 3, "tokens": 8 } },
+    { "id": "d11", "key": "DIR_D_GRADE", "goal": { "type": "grade_s", "value": 1 }, "reward": { "credits_mult": 15, "rep": 3, "tokens": 10 } },
+    { "id": "d12", "key": "DIR_D_NOINJ", "goal": { "type": "no_injury_shifts", "value": 3 }, "reward": { "credits_mult": 12, "rep": 2, "tokens": 6 } }
+  ],
+  "weekly": [
+    { "id": "w1", "key": "DIR_W_SHIFTS", "goal": { "type": "shifts_total", "value": 30 }, "reward": { "credits_mult": 60, "rep": 10, "tokens": 20 } },
+    { "id": "w2", "key": "DIR_W_GOLD", "goal": { "type": "gold_contracts", "value": 10 }, "reward": { "credits_mult": 70, "rep": 12, "tokens": 25 } },
+    { "id": "w3", "key": "DIR_W_REORG", "goal": { "type": "reorg_count", "value": 1 }, "reward": { "credits_mult": 80, "rep": 15, "tokens": 30 } },
+    { "id": "w4", "key": "DIR_W_EXPAND", "goal": { "type": "expansions", "value": 8 }, "reward": { "credits_mult": 60, "rep": 10, "tokens": 20 } },
+    { "id": "w5", "key": "DIR_W_RANK", "goal": { "type": "rank", "value": 12 }, "reward": { "credits_mult": 70, "rep": 12, "tokens": 25 } },
+    { "id": "w6", "key": "DIR_W_THREE_CLASSES", "goal": { "type": "classes_on_line", "value": 3 }, "reward": { "credits_mult": 60, "rep": 10, "tokens": 20 } },
+    { "id": "w7", "key": "DIR_W_DAILY", "goal": { "type": "daily_streak", "value": 5 }, "reward": { "credits_mult": 80, "rep": 15, "tokens": 30 } },
+    { "id": "w8", "key": "DIR_W_DUELS", "goal": { "type": "duels_won", "value": 3 }, "reward": { "credits_mult": 60, "rep": 10, "tokens": 20 } },
+    { "id": "w9", "key": "DIR_W_UNION", "goal": { "type": "union_donated", "value": 5000 }, "reward": { "credits_mult": 70, "rep": 12, "tokens": 25 } },
+    { "id": "w10", "key": "DIR_W_ELEVATOR", "goal": { "type": "elevator_milestones", "value": 1 }, "reward": { "credits_mult": 90, "rep": 18, "tokens": 35 } },
+    { "id": "w11", "key": "DIR_W_SEEN", "goal": { "type": "events_seen", "value": 10 }, "reward": { "credits_mult": 60, "rep": 10, "tokens": 20 } },
+    { "id": "w12", "key": "DIR_W_SPECIES", "goal": { "type": "species_all", "value": 5 }, "reward": { "credits_mult": 70, "rep": 12, "tokens": 25 } }
+  ]
+}

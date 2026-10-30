@@ -1,0 +1,61 @@
+{
+  "cargo": [
+    {
+      "id": "normal",
+      "key": "CARGO_NORMAL",
+      "price": 10.0,
+      "phi": { "unload": 1.0, "move": 1.0, "store": 1.0 },
+      "defect": 0.005,
+      "requires": []
+    },
+    {
+      "id": "fragile",
+      "key": "CARGO_FRAGILE",
+      "price": 22.0,
+      "phi": { "unload": 0.8, "move": 0.8, "store": 0.7 },
+      "defect": 0.04,
+      "requires": []
+    },
+    {
+      "id": "heavy",
+      "key": "CARGO_HEAVY",
+      "price": 28.0,
+      "phi": { "unload": 0.3, "move": 0.4, "store": 0.8 },
+      "defect": 0.01,
+      "requires": ["crane", "forklift"]
+    },
+    {
+      "id": "oversize",
+      "key": "CARGO_OVERSIZE",
+      "price": 60.0,
+      "phi": { "unload": 0.1, "move": 0.3, "store": 0.5 },
+      "defect": 0.02,
+      "requires": ["crane", "foreman"]
+    },
+    {
+      "id": "perishable",
+      "key": "CARGO_PERISHABLE",
+      "price": 35.0,
+      "phi": { "unload": 1.0, "move": 1.0, "store": 1.0 },
+      "defect": 0.0,
+      "requires": ["refrigerator"]
+    },
+    {
+      "id": "dangerous",
+      "key": "CARGO_DANGEROUS",
+      "price": 80.0,
+      "phi": { "unload": 0.7, "move": 0.7, "store": 0.7 },
+      "defect": 0.0,
+      "incident": 0.03,
+      "requires": ["foreman"]
+    },
+    {
+      "id": "intergalactic",
+      "key": "CARGO_INTERGALACTIC",
+      "price": 120.0,
+      "phi": { "unload": 0.8, "move": 0.8, "store": 0.8 },
+      "defect": 0.01,
+      "requires": ["orbital_dock"]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# tupik9 backend — separate compose project. Do not touch other host services.
+name: tupik9
+
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    # Bind only to loopback; nginx proxies location /tupik9/api/ here.
+    # Host port 8095 (8090 is already taken on this host); container stays 8090.
+    ports:
+      - "127.0.0.1:8095:8090"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tupik9
+      POSTGRES_PASSWORD: tupik9
+      POSTGRES_DB: tupik9
+    volumes:
+      - tupik9_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tupik9"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  validator:
+    build: ./validator
+    restart: unless-stopped
+    # Headless Godot stdio validator (spec §14.6). Mounted PCK of the client
+    # commit so sim results match exactly.
+    volumes:
+      - ./validator/pck:/pck:ro
+
+volumes:
+  tupik9_pgdata:

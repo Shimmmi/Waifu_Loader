@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local editor tooling (not part of game)
+addons/ziva_agent/
+addons/ziva_installer/
+*.TMP
+

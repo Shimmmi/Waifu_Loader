@@ -1,0 +1,50 @@
+{
+  "achievements": [
+    { "id": "first_tonne", "key": "ACH_FIRST_TONNE", "cat": "cargo", "condition": { "type": "tonnes_total", "value": 1 }, "reward": { "tokens": 5 } },
+    { "id": "thousand", "key": "ACH_THOUSAND", "cat": "cargo", "condition": { "type": "tonnes_total", "value": 1e3 }, "reward": { "tokens": 10 } },
+    { "id": "million", "key": "ACH_MILLION", "cat": "cargo", "condition": { "type": "tonnes_total", "value": 1e6 }, "reward": { "tokens": 30, "title": "millionaire" } },
+    { "id": "gigaton", "key": "ACH_GIGATON", "cat": "cargo", "condition": { "type": "tonnes_total", "value": 1e9 }, "reward": { "tokens": 60 } },
+    { "id": "that_lift", "key": "ACH_THAT_LIFT", "cat": "cargo", "condition": { "type": "elevator_milestones", "value": 12 }, "reward": { "tokens": 100, "skin": "gold" } },
+
+    { "id": "hr", "key": "ACH_HR", "cat": "people", "condition": { "type": "hires", "value": 10 }, "reward": { "tokens": 5 } },
+    { "id": "forty", "key": "ACH_FORTY", "cat": "people", "condition": { "type": "hires", "value": 40 }, "reward": { "tokens": 15 } },
+    { "id": "best_friend", "key": "ACH_BEST_FRIEND", "cat": "people", "condition": { "type": "friendship", "value": 5 }, "reward": { "tokens": 15 } },
+    { "id": "legend", "key": "ACH_LEGEND", "cat": "people", "condition": { "type": "legendary_owned", "value": 1 }, "reward": { "tokens": 25 } },
+    { "id": "international", "key": "ACH_INTERNATIONAL", "cat": "people", "condition": { "type": "species_all", "value": 5 }, "reward": { "tokens": 15 } },
+    { "id": "veteran", "key": "ACH_VETERAN", "cat": "people", "condition": { "type": "worker_level", "value": 50 }, "reward": { "tokens": 20 } },
+    { "id": "full_crew", "key": "ACH_FULL_CREW", "cat": "people", "condition": { "type": "classes_on_line", "value": 6 }, "reward": { "tokens": 15 } },
+
+    { "id": "first_shift", "key": "ACH_FIRST_SHIFT", "cat": "shifts", "condition": { "type": "shifts_total", "value": 1 }, "reward": { "tokens": 5 } },
+    { "id": "automaton", "key": "ACH_AUTOMATON", "cat": "shifts", "condition": { "type": "auto_shifts", "value": 100 }, "reward": { "tokens": 20 } },
+    { "id": "honor", "key": "ACH_HONOR", "cat": "shifts", "condition": { "type": "grade_s", "value": 10 }, "reward": { "tokens": 20 } },
+    { "id": "no_scratch", "key": "ACH_NO_SCRATCH", "cat": "shifts", "condition": { "type": "no_injury_shifts", "value": 50 }, "reward": { "tokens": 15 } },
+    { "id": "marathon", "key": "ACH_MARATHON", "cat": "shifts", "condition": { "type": "rush_shifts", "value": 20 }, "reward": { "tokens": 10 } },
+
+    { "id": "contractor", "key": "ACH_CONTRACTOR", "cat": "contracts", "condition": { "type": "contracts_done", "value": 10 }, "reward": { "tokens": 10 } },
+    { "id": "gold_fund", "key": "ACH_GOLD_FUND", "cat": "contracts", "condition": { "type": "gold_contracts", "value": 25 }, "reward": { "tokens": 25 } },
+    { "id": "client_fav", "key": "ACH_CLIENT_FAV", "cat": "contracts", "condition": { "type": "client_relation", "value": 75 }, "reward": { "tokens": 15 } },
+    { "id": "tender4", "key": "ACH_TENDER4", "cat": "contracts", "condition": { "type": "tenders", "value": 4 }, "reward": { "tokens": 10 } },
+    { "id": "perfect_month", "key": "ACH_PERFECT_MONTH", "cat": "contracts", "condition": { "type": "months_no_fail", "value": 1 }, "reward": { "tokens": 30 } },
+
+    { "id": "seen_all", "key": "ACH_SEEN_ALL", "cat": "meta", "condition": { "type": "events_seen", "value": 20 }, "reward": { "tokens": 15 } },
+    { "id": "investigator", "key": "ACH_INVESTIGATOR", "cat": "meta", "condition": { "type": "chains_done", "value": 2 }, "reward": { "tokens": 20 } },
+    { "id": "honest_boss", "key": "ACH_HONEST_BOSS", "cat": "meta", "condition": { "type": "honest_boss", "value": 1 }, "reward": { "tokens": 10 } },
+    { "id": "reorg1", "key": "ACH_REORG1", "cat": "meta", "condition": { "type": "reorg_count", "value": 1 }, "reward": { "tokens": 20 } },
+    { "id": "reorg5", "key": "ACH_REORG5", "cat": "meta", "condition": { "type": "reorg_count", "value": 5 }, "reward": { "tokens": 50 } },
+    { "id": "roguelike", "key": "ACH_ROGUELIKE", "cat": "meta", "condition": { "type": "expansions", "value": 30 }, "reward": { "tokens": 15 } },
+    { "id": "finder", "key": "ACH_FINDER", "cat": "meta", "condition": { "type": "secret_sectors", "value": 3 }, "reward": { "tokens": 25 } },
+
+    { "id": "in_lists", "key": "ACH_IN_LISTS", "cat": "multiplayer", "condition": { "type": "boards_joined", "value": 1 }, "reward": { "tokens": 5 } },
+    { "id": "top100", "key": "ACH_TOP100", "cat": "multiplayer", "condition": { "type": "top100", "value": 1 }, "reward": { "tokens": 20, "frame": "top100" } },
+    { "id": "top10", "key": "ACH_TOP10", "cat": "multiplayer", "condition": { "type": "top10", "value": 1 }, "reward": { "tokens": 50, "frame": "top10" } },
+    { "id": "duelist", "key": "ACH_DUELIST", "cat": "multiplayer", "condition": { "type": "duels_won", "value": 10 }, "reward": { "tokens": 15 } },
+    { "id": "win_streak", "key": "ACH_WIN_STREAK", "cat": "multiplayer", "condition": { "type": "win_streak", "value": 5 }, "reward": { "tokens": 20 } },
+    { "id": "league_gold", "key": "ACH_LEAGUE_GOLD", "cat": "multiplayer", "condition": { "type": "league_gold", "value": 1 }, "reward": { "tokens": 30 } },
+    { "id": "unionist", "key": "ACH_UNIONIST", "cat": "multiplayer", "condition": { "type": "union_member", "value": 1 }, "reward": { "tokens": 5 } },
+    { "id": "dues", "key": "ACH_DUES", "cat": "multiplayer", "condition": { "type": "union_donated", "value": 10000 }, "reward": { "tokens": 15 } },
+    { "id": "common_cause", "key": "ACH_COMMON_CAUSE", "cat": "multiplayer", "condition": { "type": "global_contrib", "value": 1 }, "reward": { "tokens": 10 } },
+    { "id": "daily7", "key": "ACH_DAILY7", "cat": "multiplayer", "condition": { "type": "daily_streak", "value": 7 }, "reward": { "tokens": 20 } },
+    { "id": "gift10", "key": "ACH_GIFT10", "cat": "multiplayer", "condition": { "type": "gifts_sent", "value": 10 }, "reward": { "tokens": 10 } },
+    { "id": "best_brigade", "key": "ACH_BEST_BRIGADE", "cat": "multiplayer", "condition": { "type": "cup_brigade", "value": 1 }, "reward": { "tokens": 15 } }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "skills": [
+    { "id": "grip", "class": "loader", "tier": 1, "key": "SKL_GRIP" },
+    { "id": "back", "class": "loader", "tier": 1, "key": "SKL_BACK" },
+    { "id": "double_trip", "class": "loader", "tier": 2, "key": "SKL_DOUBLE_TRIP" },
+    { "id": "careful", "class": "loader", "tier": 2, "key": "SKL_CAREFUL" },
+    { "id": "strongman", "class": "loader", "tier": 3, "key": "SKL_STRONGMAN" },
+    { "id": "shift_veteran", "class": "loader", "tier": 3, "key": "SKL_SHIFT_VETERAN" },
+
+    { "id": "license_c", "class": "driver", "tier": 1, "key": "SKL_LICENSE_C" },
+    { "id": "racer", "class": "driver", "tier": 1, "key": "SKL_RACER" },
+    { "id": "science_parking", "class": "driver", "tier": 2, "key": "SKL_SCIENCE_PARKING" },
+    { "id": "frugal", "class": "driver", "tier": 2, "key": "SKL_FRUGAL" },
+    { "id": "drift", "class": "driver", "tier": 3, "key": "SKL_DRIFT" },
+    { "id": "autopilot", "class": "driver", "tier": 3, "key": "SKL_AUTOPILOT" },
+
+    { "id": "fine_reach", "class": "crane", "tier": 1, "key": "SKL_FINE_REACH" },
+    { "id": "night_mode", "class": "crane", "tier": 1, "key": "SKL_NIGHT_MODE" },
+    { "id": "double_grab", "class": "crane", "tier": 2, "key": "SKL_DOUBLE_GRAB" },
+    { "id": "signaler", "class": "crane", "tier": 2, "key": "SKL_SIGNALER" },
+    { "id": "orbital_style", "class": "crane", "tier": 3, "key": "SKL_ORBITAL_STYLE" },
+    { "id": "calm", "class": "crane", "tier": 3, "key": "SKL_CALM" },
+
+    { "id": "inventory", "class": "storekeeper", "tier": 1, "key": "SKL_INVENTORY" },
+    { "id": "labels", "class": "storekeeper", "tier": 1, "key": "SKL_LABELS" },
+    { "id": "optimizer", "class": "storekeeper", "tier": 2, "key": "SKL_OPTIMIZER" },
+    { "id": "nose", "class": "storekeeper", "tier": 2, "key": "SKL_NOSE" },
+    { "id": "perfect_books", "class": "storekeeper", "tier": 3, "key": "SKL_PERFECT_BOOKS" },
+    { "id": "auditor", "class": "storekeeper", "tier": 3, "key": "SKL_AUDITOR" },
+
+    { "id": "tape", "class": "mechanic", "tier": 1, "key": "SKL_TAPE" },
+    { "id": "lubricant", "class": "mechanic", "tier": 1, "key": "SKL_LUBRICANT" },
+    { "id": "innovator", "class": "mechanic", "tier": 2, "key": "SKL_INNOVATOR" },
+    { "id": "diagnostician", "class": "mechanic", "tier": 2, "key": "SKL_DIAGNOSTICIAN" },
+    { "id": "golden_hands_skl", "class": "mechanic", "tier": 3, "key": "SKL_GOLDEN_HANDS" },
+    { "id": "shop_legend", "class": "mechanic", "tier": 3, "key": "SKL_SHOP_LEGEND" },
+
+    { "id": "loud_voice", "class": "foreman", "tier": 1, "key": "SKL_LOUD_VOICE" },
+    { "id": "timesheet", "class": "foreman", "tier": 1, "key": "SKL_TIMESHEET" },
+    { "id": "briefing", "class": "foreman", "tier": 2, "key": "SKL_BRIEFING" },
+    { "id": "bonus", "class": "foreman", "tier": 2, "key": "SKL_BONUS" },
+    { "id": "father_figure", "class": "foreman", "tier": 3, "key": "SKL_FATHER_FIGURE" },
+    { "id": "carrot_stick", "class": "foreman", "tier": 3, "key": "SKL_CARROT_STICK" }
+  ]
+}

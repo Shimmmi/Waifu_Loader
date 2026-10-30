@@ -1,0 +1,19 @@
+{
+  "tiers": [
+    { "id": "T1", "ranks": [4, 9], "cargo": ["normal", "fragile"], "deadline_min": [10, 25] },
+    { "id": "T2", "ranks": [10, 17], "cargo": ["normal", "fragile", "heavy", "perishable"], "deadline_min": [15, 45] },
+    { "id": "T3", "ranks": [18, 25], "cargo": ["fragile", "dangerous"], "deadline_min": [20, 60] },
+    { "id": "T4", "ranks": [26, 34], "cargo": ["oversize", "dangerous"], "deadline_min": [30, 90] },
+    { "id": "T5", "ranks": [35, 99], "cargo": ["intergalactic"], "deadline_min": [60, 120] }
+  ],
+  "diffs": [
+    { "id": 0, "key": "DIFF_EASY", "label": "Лёгкий", "mult": 0.6 },
+    { "id": 1, "key": "DIFF_NORMAL", "label": "Обычный", "mult": 0.8 },
+    { "id": 2, "key": "DIFF_HARD", "label": "Сложный", "mult": 1.0 },
+    { "id": 3, "key": "DIFF_HELL", "label": "Адский", "mult": 1.2 }
+  ],
+  "kpi_types": ["deadline", "tempo", "quality", "safety", "brigade", "crew"],
+  "reward": { "gold_mult": 1.5, "silver_mult": 1.0, "bronze_mult": 0.6, "rep_base": 2.0, "rep_diff": 2.0, "bonus": 0.5 },
+  "penalty": { "rep_mult": 0.5, "credit_frac": 0.1 },
+  "board": { "offers_base": 4, "offers_per_dispatch": 0.5, "offers_max": 10, "refresh_min": 30, "max_active_base": 1, "max_active_max": 8 }
+}

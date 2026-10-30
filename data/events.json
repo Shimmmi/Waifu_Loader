@@ -1,0 +1,169 @@
+{
+  "events": [
+    { "id": "evt_coffee_riot", "key": "COFFEE_RIOT", "weight": 10, "conditions": { "min_rank": 6, "cooldown_shifts": 8 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "buy", "label_key": "A", "cost": { "credits_per_rank": 80 }, "effects": [ { "type": "morale", "target": "all", "delta": 5 } ] },
+        { "id": "wait", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": -3 }, { "type": "mod_station", "station": "all", "mult": 0.95, "dur": 120 } ] }
+      ], "default_choice": "wait" },
+    { "id": "evt_ceiling_leak", "key": "CEILING_LEAK", "weight": 9, "conditions": { "cooldown_shifts": 6 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "patch", "label_key": "A", "cost": { "parts": 3 }, "effects": [] },
+        { "id": "bucket", "label_key": "B", "effects": [ { "type": "mod_station", "station": "all", "mult": 0.9, "dur": 90 } ] }
+      ], "default_choice": "bucket" },
+    { "id": "evt_dock_heat", "key": "DOCK_HEAT", "weight": 8, "conditions": { "min_rank": 8 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "vent", "label_key": "A", "cost": { "credits_per_rank": 60 }, "effects": [] },
+        { "id": "endure", "label_key": "B", "effects": [ { "type": "mod_station", "station": "unload", "mult": 0.85, "dur": 120 } ] }
+      ], "default_choice": "endure" },
+    { "id": "evt_stray_cat", "key": "STRAY_CAT", "weight": 8, "conditions": { "min_rank": 6 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "pet", "label_key": "A", "effects": [ { "type": "morale", "target": "all", "delta": 5 }, { "type": "mod_flow", "mult": 0.95, "dur": 60 } ] },
+        { "id": "shoo", "label_key": "B", "check": { "stat": "wit", "dc": 30 }, "effects": [ { "type": "morale", "target": "all", "delta": -3 } ] }
+      ], "default_choice": "pet" },
+    { "id": "evt_deadend_day", "key": "DEADEND_DAY", "weight": 6, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "bonus", "label_key": "A", "cost": { "credits_per_rank": 100 }, "effects": [ { "type": "morale", "target": "all", "delta": 10 }, { "type": "mod_flow", "mult": 1.05, "dur": 180 } ] },
+        { "id": "cheer", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": 2 } ] }
+      ], "default_choice": "cheer" },
+    { "id": "evt_schedule_glitch", "key": "SCHEDULE_GLITCH", "weight": 6, "conditions": { "min_rank": 8 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "accept", "label_key": "A", "effects": [] },
+        { "id": "fix", "label_key": "B", "check": { "stat": "wit", "dc": 40 }, "effects": [ { "type": "rep", "delta": 3 } ] }
+      ], "default_choice": "accept" },
+    { "id": "evt_lube_sale", "key": "LUBE_SALE", "weight": 6, "conditions": { "needs_sector": "garage" }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "buy", "label_key": "A", "cost": { "credits_per_rank": 100 }, "effects": [ { "type": "rep", "delta": 1 } ] },
+        { "id": "no", "label_key": "B", "effects": [] }
+      ], "default_choice": "no" },
+    { "id": "evt_tourists", "key": "TOURISTS", "weight": 5, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "tour", "label_key": "A", "effects": [ { "type": "rep", "delta": 2 }, { "type": "mod_flow", "mult": 0.92, "dur": 90 } ] },
+        { "id": "no", "label_key": "B", "effects": [] }
+      ], "default_choice": "no" },
+    { "id": "evt_lift_jam", "key": "LIFT_JAM", "weight": 7, "conditions": { "min_rank": 8 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "wait", "label_key": "A", "effects": [ { "type": "mod_station", "station": "move", "mult": 0.9, "dur": 60 } ] },
+        { "id": "fix", "label_key": "B", "cost": { "parts": 2 }, "effects": [] }
+      ], "default_choice": "wait" },
+    { "id": "evt_smoke_party", "key": "SMOKE_PARTY", "weight": 6, "conditions": { "min_rank": 8 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "disperse", "label_key": "A", "effects": [ { "type": "morale", "target": "all", "delta": -4 }, { "type": "mod_flow", "mult": 1.05, "dur": 120 } ] },
+        { "id": "join", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": 6 }, { "type": "mod_flow", "mult": 0.9, "dur": 90 } ] }
+      ], "default_choice": "disperse" },
+    { "id": "evt_easy_day", "key": "EASY_DAY", "weight": 8, "conditions": { "min_rank": 6 }, "scope": "line", "auto_resolve_s": 30,
+      "choices": [ { "id": "ok", "label_key": "A", "effects": [ { "type": "mod_flow", "mult": 1.2, "dur": 120 } ] } ], "default_choice": "ok" },
+    { "id": "evt_hard_day", "key": "HARD_DAY", "weight": 7, "conditions": { "min_rank": 8 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "accept", "label_key": "A", "effects": [ { "type": "mod_flow", "mult": 1.3, "dur": 120 } ] },
+        { "id": "refuse", "label_key": "B", "effects": [] }
+      ], "default_choice": "refuse" },
+    { "id": "evt_repack", "key": "REPACK", "weight": 7, "conditions": { "min_rank": 10 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "careful", "label_key": "A", "check": { "stat": "acc", "dc": 45 }, "effects": [ { "type": "credits_per_rank", "value": 20 } ] },
+        { "id": "ignore", "label_key": "B", "effects": [ { "type": "mod_station", "station": "store", "mult": 0.9, "dur": 90 } ] }
+      ], "default_choice": "ignore" },
+    { "id": "evt_leaking_container", "key": "LEAKING_CONTAINER", "weight": 5, "conditions": { "min_rank": 18, "needs_cargo": "dangerous" }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "rescue", "label_key": "A", "cost": { "credits_per_rank": 150 }, "effects": [] },
+        { "id": "diy", "label_key": "B", "check": { "stat": "wit", "dc": 50 }, "effects": [ { "type": "status", "target": "random", "status": "injured", "dur": 180 } ] }
+      ], "default_choice": "rescue" },
+    { "id": "evt_fridge_fail", "key": "FRIDGE_FAIL", "weight": 6, "conditions": { "needs_cargo": "perishable" }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "repair", "label_key": "A", "cost": { "parts": 4 }, "effects": [] },
+        { "id": "rush", "label_key": "B", "effects": [ { "type": "mod_station", "station": "all", "mult": 0.9, "dur": 90 } ] }
+      ], "default_choice": "rush" },
+    { "id": "evt_oversize_jam", "key": "OVERSIZE_JAM", "weight": 4, "conditions": { "min_rank": 26, "needs_cargo": "oversize" }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "crane", "label_key": "A", "check": { "stat": "wit", "dc": 55 }, "effects": [ { "type": "sector_break", "sector": "crane" } ] },
+        { "id": "disassemble", "label_key": "B", "effects": [ { "type": "mod_station", "station": "unload", "mult": 0.9, "dur": 60 } ] }
+      ], "default_choice": "disassemble" },
+    { "id": "evt_do_not_open", "key": "DO_NOT_OPEN", "weight": 9, "conditions": { "min_rank": 6 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "keep", "label_key": "A", "effects": [ { "type": "rep", "delta": 1 } ] },
+        { "id": "open", "label_key": "B", "effects": [ { "type": "chain_set", "chain": "smuggling", "step": 1 } ] }
+      ], "default_choice": "keep" },
+    { "id": "evt_return_shipment", "key": "RETURN_SHIPMENT", "weight": 7, "conditions": { "needs_active_contract": true }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "accept", "label_key": "A", "effects": [ { "type": "mod_flow", "mult": 0.95, "dur": 120 } ] },
+        { "id": "dispute", "label_key": "B", "check": { "stat": "wit", "dc": 40 }, "effects": [] }
+      ], "default_choice": "accept" },
+    { "id": "evt_resignation", "key": "RESIGNATION", "weight": 8, "conditions": { "min_rank": 6 }, "scope": "worker", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "raise", "label_key": "A", "effects": [ { "type": "morale", "target": "random", "delta": 15 } ] },
+        { "id": "release", "label_key": "B", "effects": [] }
+      ], "default_choice": "raise" },
+    { "id": "evt_conflict", "key": "CONFLICT", "weight": 8, "conditions": { "min_rank": 6 }, "scope": "line", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "break", "label_key": "A", "check": { "stat": "wit", "dc": 40 }, "effects": [ { "type": "morale", "target": "all", "delta": 2 } ] },
+        { "id": "separate", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": -2 } ] }
+      ], "default_choice": "separate" },
+    { "id": "evt_mentor", "key": "MENTOR", "weight": 6, "conditions": { "min_rank": 7 }, "scope": "worker", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "assign", "label_key": "A", "effects": [] },
+        { "id": "none", "label_key": "B", "effects": [] }
+      ], "default_choice": "none" },
+    { "id": "evt_injury", "key": "INJURY", "weight": 7, "conditions": { "min_rank": 6 }, "scope": "worker", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "pay", "label_key": "A", "effects": [ { "type": "fatigue", "target": "random", "delta": -40 } ] },
+        { "id": "free", "label_key": "B", "effects": [] }
+      ], "default_choice": "free" },
+    { "id": "evt_birthday", "key": "BIRTHDAY", "weight": 8, "conditions": { "min_rank": 6 }, "scope": "worker", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "cake", "label_key": "A", "cost": { "credits_per_rank": 50 }, "effects": [ { "type": "morale", "target": "all", "delta": 2 } ] },
+        { "id": "words", "label_key": "B", "effects": [] }
+      ], "default_choice": "words" },
+    { "id": "evt_layoff_rumors", "key": "LAYOFF_RUMORS", "weight": 6, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "dispel", "label_key": "A", "check": { "stat": "wit", "dc": 45 }, "effects": [ { "type": "morale", "target": "all", "delta": 3 } ] },
+        { "id": "ignore", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": -4 } ] }
+      ], "default_choice": "ignore" },
+    { "id": "evt_union_agit", "key": "UNION_AGIT", "weight": 6, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "listen", "label_key": "A", "effects": [ { "type": "chain_set", "chain": "union", "step": 1 } ] },
+        { "id": "shoo", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": -3 } ] }
+      ], "default_choice": "shoo" },
+    { "id": "evt_old_friend", "key": "OLD_FRIEND", "weight": 5, "conditions": { "min_rank": 6 }, "scope": "line", "auto_resolve_s": 30,
+      "choices": [ { "id": "ok", "label_key": "A", "effects": [ { "type": "morale", "target": "all", "delta": 5 } ] } ], "default_choice": "ok" },
+    { "id": "evt_tax_inspection", "key": "TAX_INSPECTION", "weight": 5, "conditions": { "min_rank": 14 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "pay", "label_key": "A", "cost": { "credits_frac": 0.08 }, "effects": [] },
+        { "id": "papers", "label_key": "B", "check": { "stat": "wit", "dc": 50 }, "effects": [ { "type": "rep", "delta": 2 } ] }
+      ], "default_choice": "pay" },
+    { "id": "evt_virus", "key": "VIRUS", "weight": 5, "conditions": { "min_rank": 12 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "reboot", "label_key": "A", "effects": [ { "type": "mod_station", "station": "all", "mult": 0.85, "dur": 60 } ] },
+        { "id": "cure", "label_key": "B", "check": { "stat": "wit", "dc": 45 }, "effects": [ { "type": "mod_station", "station": "move", "mult": 0.8, "dur": 120 } ] }
+      ], "default_choice": "reboot" },
+    { "id": "evt_meteor", "key": "METEOR", "weight": 4, "conditions": { "min_rank": 12 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "shelter", "label_key": "A", "effects": [ { "type": "mod_station", "station": "all", "mult": 0.85, "dur": 60 } ] },
+        { "id": "work", "label_key": "B", "effects": [ { "type": "mod_station", "station": "all", "mult": 1.1, "dur": 60 }, { "type": "sector_break", "sector": "random" } ] }
+      ], "default_choice": "shelter" },
+    { "id": "evt_poacher", "key": "POACHER", "weight": 5, "conditions": { "min_rank": 10 }, "scope": "worker", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "counter", "label_key": "A", "cost": { "credits_per_rank": 90 }, "effects": [] },
+        { "id": "release", "label_key": "B", "effects": [ { "type": "status", "target": "random", "status": "injured", "dur": 120 } ] }
+      ], "default_choice": "release" },
+    { "id": "evt_supplier_discount", "key": "SUPPLIER_DISCOUNT", "weight": 5, "conditions": { "needs_sector": "workshop" }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "buy", "label_key": "A", "cost": { "credits_frac": 0.1 }, "effects": [ { "type": "parts", "delta": 20 } ] },
+        { "id": "no", "label_key": "B", "effects": [] }
+      ], "default_choice": "no" },
+    { "id": "evt_secret_shopper", "key": "SECRET_SHOPPER", "weight": 4, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 30,
+      "choices": [ { "id": "ok", "label_key": "A", "effects": [ { "type": "rep", "delta": 2 } ] } ], "default_choice": "ok" },
+    { "id": "evt_old_timer", "key": "OLD_TIMER", "weight": 4, "conditions": { "min_rank": 6 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "take", "label_key": "A", "effects": [ { "type": "worker_gain", "rarity": 2 } ] },
+        { "id": "refuse", "label_key": "B", "effects": [ { "type": "credits_per_rank", "value": 200 } ] }
+      ], "default_choice": "refuse" },
+    { "id": "evt_golden_crate", "key": "GOLDEN_CRATE", "weight": 3, "conditions": { "min_rank": 6 }, "scope": "terminal", "auto_resolve_s": 30,
+      "choices": [ { "id": "ok", "label_key": "A", "effects": [ { "type": "credits_per_rank", "value": 500 } ] } ], "default_choice": "ok" },
+    { "id": "evt_relic", "key": "RELIC", "weight": 3, "conditions": { "min_rank": 9 }, "scope": "worker", "auto_resolve_s": 30,
+      "choices": [ { "id": "ok", "label_key": "A", "effects": [ { "type": "parts", "delta": 15 } ] } ], "default_choice": "ok" },
+    { "id": "evt_lottery", "key": "LOTTERY", "weight": 5, "conditions": { "min_rank": 10 }, "scope": "terminal", "auto_resolve_s": 60,
+      "choices": [
+        { "id": "ticket", "label_key": "A", "cost": { "credits_per_rank": 50 }, "effects": [ { "type": "credits_per_rank", "value": 100 } ] },
+        { "id": "pass", "label_key": "B", "effects": [] }
+      ], "default_choice": "pass" }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "chains": [
+    {
+      "id": "smuggling", "key": "CHAIN_SMUGGLING", "steps": 4,
+      "step_keys": ["CHAIN_SMUGGLING_1", "CHAIN_SMUGGLING_2", "CHAIN_SMUGGLING_3", "CHAIN_SMUGGLING_4"],
+      "choices": [
+        { "id": "police", "label_key": "A", "effects": [ { "type": "rep", "delta": 5 } ] },
+        { "id": "hide", "label_key": "B", "next": 2, "effects": [] },
+        { "id": "sell", "label_key": "C", "next": 2, "effects": [ { "type": "credits_per_rank", "value": 300 } ] },
+        { "id": "return", "label_key": "A", "check": { "stat": "wit", "dc": 45 }, "effects": [] },
+        { "id": "bribe", "label_key": "A", "cost": { "credits_per_rank": 200 }, "effects": [] },
+        { "id": "cooperate", "label_key": "B", "effects": [ { "type": "rep", "delta": -2 } ] }
+      ]
+    },
+    {
+      "id": "union", "key": "CHAIN_UNION", "steps": 3,
+      "step_keys": ["CHAIN_UNION_1", "CHAIN_UNION_2", "CHAIN_UNION_3"],
+      "choices": [
+        { "id": "accept", "label_key": "A", "effects": [ { "type": "morale", "target": "all", "delta": 3 } ] },
+        { "id": "bargain", "label_key": "B", "check": { "stat": "wit", "dc": 50 }, "effects": [ { "type": "morale", "target": "all", "delta": 2 } ] },
+        { "id": "strike_break", "label_key": "B", "effects": [ { "type": "morale", "target": "all", "delta": -5 } ] },
+        { "id": "negotiate", "label_key": "C", "effects": [] }
+      ]
+    },
+    {
+      "id": "secret", "key": "CHAIN_SECRET", "steps": 3,
+      "step_keys": ["CHAIN_SECRET_1", "CHAIN_SECRET_2", "CHAIN_SECRET_3"],
+      "choices": [
+        { "id": "open_wall", "label_key": "A", "cost": { "parts": 50 }, "effects": [] },
+        { "id": "seal", "label_key": "B", "effects": [] },
+        { "id": "explore", "label_key": "A", "check": { "stat": "wit", "dc": 55 }, "effects": [ { "type": "worker_gain", "rarity": 4 } ] }
+      ]
+    }
+  ]
+}

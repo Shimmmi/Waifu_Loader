@@ -1,0 +1,33 @@
+{
+  "species": [
+    {
+      "id": "human",
+      "key": "SPC_HUMAN",
+      "mult": { "str": 1.0, "agi": 1.0, "acc": 1.0, "end": 1.0, "wit": 1.0 },
+      "xp_bonus": 0.05
+    },
+    {
+      "id": "silicate",
+      "key": "SPC_SILICATE",
+      "mult": { "str": 1.25, "agi": 0.8, "acc": 1.0, "end": 1.15, "wit": 0.9 },
+      "wage_mult": 0.9
+    },
+    {
+      "id": "android",
+      "key": "SPC_ANDROID",
+      "mult": { "str": 1.0, "agi": 1.0, "acc": 1.2, "end": 1.2, "wit": 1.1 },
+      "morale_influence": 0.5
+    },
+    {
+      "id": "gel",
+      "key": "SPC_GEL",
+      "mult": { "str": 0.7, "agi": 1.2, "acc": 1.0, "end": 1.0, "wit": 1.0 }
+    },
+    {
+      "id": "avian",
+      "key": "SPC_AVIAN",
+      "mult": { "str": 0.8, "agi": 1.3, "acc": 1.0, "end": 0.9, "wit": 1.1 },
+      "morale_influence": 1.3
+    }
+  ]
+}

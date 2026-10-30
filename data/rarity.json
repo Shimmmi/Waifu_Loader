@@ -1,0 +1,19 @@
+{
+  "rarities": [
+    { "id": "common", "key": "RAR_COMMON", "tier": 0, "color": "#9aa0a6", "stat_sum": 50, "traits_min": 0, "traits_max": 1, "wage_mult": 1.0, "growth": 2.0 },
+    { "id": "uncommon", "key": "RAR_UNCOMMON", "tier": 1, "color": "#4caf50", "stat_sum": 60, "traits_min": 1, "traits_max": 1, "wage_mult": 1.4, "growth": 2.5 },
+    { "id": "rare", "key": "RAR_RARE", "tier": 2, "color": "#3d7bff", "stat_sum": 72, "traits_min": 2, "traits_max": 2, "wage_mult": 2.0, "growth": 3.0 },
+    { "id": "epic", "key": "RAR_EPIC", "tier": 3, "color": "#9c4dcc", "stat_sum": 86, "traits_min": 2, "traits_max": 2, "wage_mult": 3.0, "growth": 3.5 },
+    { "id": "legendary", "key": "RAR_LEGENDARY", "tier": 4, "color": "#f5b301", "stat_sum": 104, "traits_min": 3, "traits_max": 3, "wage_mult": 4.5, "growth": 4.0 }
+  ],
+  "agency_odds": [
+    [60, 25, 11, 3.5, 0.5],
+    [52, 28, 14, 5, 1],
+    [44, 30, 17, 7, 2],
+    [36, 31, 21, 9, 3],
+    [28, 32, 25, 12, 3],
+    [20, 30, 29, 16, 5]
+  ],
+  "guarantees": { "rare": 12, "epic": 40, "legendary": 150 },
+  "hidden_negative_chance": 0.2
+}

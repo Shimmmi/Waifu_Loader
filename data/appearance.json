@@ -1,0 +1,16 @@
+{
+  "body_types": ["medium"],
+  "hair_styles": 8,
+  "eye_shapes": 4,
+  "emotions": ["neutral", "happy", "tired", "annoyed", "panic", "injured"],
+  "default": {
+    "body": 0,
+    "hair": 0,
+    "hair_front": 0,
+    "eyes": 0,
+    "uniform": 0,
+    "hat": -1,
+    "accessory": -1,
+    "palettes": { "skin": 0, "hair": 0 }
+  }
+}

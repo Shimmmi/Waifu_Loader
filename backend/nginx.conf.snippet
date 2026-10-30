@@ -1,0 +1,49 @@
+# tupik9 API — include this INSIDE the shimmirpgbot.ru server block of
+# /etc/nginx/sites-available/waifu-bot (same pattern as the Elevators/ManaCalc
+# includes). Apply with `nginx -t` + `systemctl reload nginx` (never restart).
+#
+# Backend listens on 127.0.0.1:8090; nginx exposes it under /tupik9/api/.
+
+location /tupik9/api/ {
+    proxy_pass http://127.0.0.1:8095/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_http_version 1.1;
+    proxy_connect_timeout 10s;
+    proxy_send_timeout 30s;
+    proxy_read_timeout 30s;
+    client_max_body_size 1m;
+
+    # CORS (spec §14.2). Origins are echoed back; the backend also sets them,
+    # but nginx guarantees preflight works even before the app is reached.
+    set $cors_origin "";
+    if ($http_origin ~* "^https://([a-z0-9-]+\.)*(itch\.io|itch\.zone|hwcdn\.net)$") {
+        set $cors_origin $http_origin;
+    }
+    if ($http_origin ~* "^https://shimmirpgbot\.ru$") {
+        set $cors_origin $http_origin;
+    }
+    if ($http_origin ~* "^http://localhost(:[0-9]+)?$") {
+        set $cors_origin $http_origin;
+    }
+
+    add_header Access-Control-Allow-Origin $cors_origin always;
+    add_header Access-Control-Allow-Credentials "true" always;
+    add_header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS" always;
+    add_header Access-Control-Allow-Headers "Authorization, Content-Type, Idempotency-Key, X-Client-Version, X-Sim-Version" always;
+    add_header Access-Control-Max-Age 86400 always;
+    add_header Cache-Control "no-store" always;
+
+    if ($request_method = 'OPTIONS') {
+        add_header Access-Control-Allow-Origin $cors_origin always;
+        add_header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, Idempotency-Key, X-Client-Version, X-Sim-Version" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Content-Length 0;
+        add_header Content-Type text/plain;
+        return 204;
+    }
+}

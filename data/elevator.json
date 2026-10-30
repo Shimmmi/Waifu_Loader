@@ -1,0 +1,18 @@
+{
+  "milestones": [
+    { "n": 1, "key": "ELEV_1", "tonnes": 1e4, "reward": { "title": "foreman" } },
+    { "n": 2, "key": "ELEV_2", "tonnes": 1e5, "reward": { "pinned_slots": 2 } },
+    { "n": 3, "key": "ELEV_3", "tonnes": 1e6, "reward": { "skin": "neon" } },
+    { "n": 4, "key": "ELEV_4", "tonnes": 1e7, "reward": { "speed": 0.01 } },
+    { "n": 5, "key": "ELEV_5", "tonnes": 5e7, "reward": { "tokens": 10 } },
+    { "n": 6, "key": "ELEV_6", "tonnes": 1e8, "reward": { "income": 0.01 } },
+    { "n": 7, "key": "ELEV_7", "tonnes": 1e9, "reward": { "tokens": 25 } },
+    { "n": 8, "key": "ELEV_8", "tonnes": 1e10, "reward": { "speed": 0.01, "title": "lift_operator" } },
+    { "n": 9, "key": "ELEV_9", "tonnes": 1e11, "reward": { "income": 0.01, "tokens": 50 } },
+    { "n": 10, "key": "ELEV_10", "tonnes": 1e12, "reward": { "skin": "gold", "build_slots": 1 } },
+    { "n": 11, "key": "ELEV_11", "tonnes": 1e13, "reward": { "speed": 0.01, "tokens": 75 } },
+    { "n": 12, "key": "ELEV_12", "tonnes": 1e14, "reward": { "title": "orbital_boss", "frame": "gates" } }
+  ],
+  "milestone_bonus_max_speed": 0.03,
+  "milestone_bonus_max_income": 0.03
+}

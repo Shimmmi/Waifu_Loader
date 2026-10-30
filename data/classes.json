@@ -1,0 +1,15 @@
+{
+  "classes": [
+    { "id": "loader", "key": "CLS_LOADER", "weights": { "str": 0.35, "agi": 0.15, "acc": 0.10, "end": 0.30, "wit": 0.10 }, "wage": 10, "role": "unload" },
+    { "id": "driver", "key": "CLS_DRIVER", "weights": { "str": 0.10, "agi": 0.30, "acc": 0.30, "end": 0.10, "wit": 0.20 }, "wage": 16, "role": "move" },
+    { "id": "crane", "key": "CLS_CRANE", "weights": { "str": 0.10, "agi": 0.10, "acc": 0.35, "end": 0.15, "wit": 0.30 }, "wage": 24, "role": "unload" },
+    { "id": "storekeeper", "key": "CLS_STOREKEEPER", "weights": { "str": 0.10, "agi": 0.10, "acc": 0.35, "end": 0.10, "wit": 0.35 }, "wage": 18, "role": "store" },
+    { "id": "mechanic", "key": "CLS_MECHANIC", "weights": { "str": 0.20, "agi": 0.10, "acc": 0.25, "end": 0.10, "wit": 0.35 }, "wage": 20, "role": "support" },
+    { "id": "foreman", "key": "CLS_FOREMAN", "weights": { "str": 0.20, "agi": 0.10, "acc": 0.15, "end": 0.25, "wit": 0.30 }, "wage": 30, "role": "support" }
+  ],
+  "class_fit": {
+    "unload": { "loader": 1.0, "driver": 0.4, "crane": 0.7, "storekeeper": 0.2, "mechanic": 0.2, "foreman": 0.2 },
+    "move": { "loader": 0.5, "driver": 1.0, "crane": 0.2, "storekeeper": 0.2, "mechanic": 0.2, "foreman": 0.2 },
+    "store": { "loader": 0.5, "driver": 0.4, "crane": 0.2, "storekeeper": 1.0, "mechanic": 0.2, "foreman": 0.2 }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "psycho": [
+    { "id": "workaholic", "key": "PSY_WORKAHOLIC" },
+    { "id": "life_of_party", "key": "PSY_LIFE_OF_PARTY" },
+    { "id": "grumbler", "key": "PSY_GRUMBLER" },
+    { "id": "sly", "key": "PSY_SLY" },
+    { "id": "quiet", "key": "PSY_QUIET" },
+    { "id": "rebel", "key": "PSY_REBEL" }
+  ],
+  "matrix": {
+    "workaholic":   { "workaholic": 5, "life_of_party": 5, "grumbler": -5, "sly": -5, "quiet": 10, "rebel": -10 },
+    "life_of_party":{ "workaholic": 5, "life_of_party": 10, "grumbler": -10, "sly": 5, "quiet": 10, "rebel": 5 },
+    "grumbler":     { "workaholic": -5, "life_of_party": -10, "grumbler": 5, "sly": 0, "quiet": 10, "rebel": -5 },
+    "sly":          { "workaholic": -5, "life_of_party": 5, "grumbler": 0, "sly": 5, "quiet": 0, "rebel": 10 },
+    "quiet":        { "workaholic": 10, "life_of_party": 10, "grumbler": 10, "sly": 0, "quiet": 5, "rebel": 0 },
+    "rebel":        { "workaholic": -10, "life_of_party": 5, "grumbler": -5, "sly": 10, "quiet": 0, "rebel": 5 }
+  }
+}

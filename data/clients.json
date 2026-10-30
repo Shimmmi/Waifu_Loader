@@ -1,0 +1,28 @@
+{
+  "clients": [
+    { "id": "galactic_post", "key": "CLI_GALACTIC_POST", "quirk": "urgent", "penalty_mult": 1.5 },
+    { "id": "horns_hooves", "key": "CLI_HORNS_HOOVES", "quirk": "mixed" },
+    { "id": "nipple_sons", "key": "CLI_NIPPLE_SONS", "quirk": "pays_parts" },
+    { "id": "cosmofruit", "key": "CLI_COSMOFRUIT", "quirk": "perishable_only" },
+    { "id": "interstellar_furniture", "key": "CLI_FURNITURE", "quirk": "oversize" },
+    { "id": "do_not_shake", "key": "CLI_DO_NOT_SHAKE", "quirk": "fragile_quality" },
+    { "id": "black_hole_logistics", "key": "CLI_BLACK_HOLE", "quirk": "dangerous", "reward_mult": 1.4 },
+    { "id": "strange_institute", "key": "CLI_STRANGE", "quirk": "random_mod" },
+    { "id": "eternal_acceptance", "key": "CLI_ETERNAL", "quirk": "always_quality" },
+    { "id": "three_tins", "key": "CLI_THREE_TINS", "quirk": "android_bonus" },
+    { "id": "uncle_borya", "key": "CLI_UNCLE_BORYA", "quirk": "haggle" },
+    { "id": "secret_shopper", "key": "CLI_SECRET_SHOPPER", "quirk": "secret_safety" },
+    { "id": "cargo_cult", "key": "CLI_CARGO_CULT", "quirk": "mixed" },
+    { "id": "moss_bank", "key": "CLI_MOSS_BANK", "quirk": "always_quality" },
+    { "id": "nebula_pharma", "key": "CLI_NEBULA_PHARMA", "quirk": "perishable_only" },
+    { "id": "rustworks", "key": "CLI_RUSTWORKS", "quirk": "pays_parts" },
+    { "id": "starlight_movers", "key": "CLI_STARLIGHT_MOVERS", "quirk": "oversize" },
+    { "id": "quiet_order", "key": "CLI_QUIET_ORDER", "quirk": "fragile_quality" },
+    { "id": "void_recycling", "key": "CLI_VOID_RECYCLING", "quirk": "dangerous" },
+    { "id": "lucky_seven", "key": "CLI_LUCKY_SEVEN", "quirk": "haggle" },
+    { "id": "grandma_exports", "key": "CLI_GRANDMA_EXPORTS", "quirk": "urgent" },
+    { "id": "titan_freight", "key": "CLI_TITAN_FREIGHT", "quirk": "mixed" },
+    { "id": "glass_and_co", "key": "CLI_GLASS_AND_CO", "quirk": "fragile_quality" },
+    { "id": "orbit_groceries", "key": "CLI_ORBIT_GROCERIES", "quirk": "perishable_only" }
+  ]
+}

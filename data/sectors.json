@@ -1,0 +1,47 @@
+{
+  "sectors": [
+    { "id": "dock", "key": "SEC_DOCK", "size": [2, 1], "rank": 1, "build_cost": 150, "g": 1.50, "max_level": 30, "effect": { "dock": true } },
+    { "id": "storage", "key": "SEC_STORAGE", "size": [1, 1], "rank": 1, "build_cost": 120, "g": 1.42, "max_level": 25, "effect": { "storage": true } },
+    { "id": "office", "key": "SEC_OFFICE", "size": [1, 1], "rank": 1, "build_cost": 200, "g": 1.50, "max_level": 20, "effect": { "office": true } },
+    { "id": "dorm", "key": "SEC_DORM", "size": [1, 1], "rank": 1, "build_cost": 200, "g": 1.40, "max_level": 20, "effect": { "dorm": true } },
+    { "id": "canteen", "key": "SEC_CANTEEN", "size": [1, 1], "rank": 2, "build_cost": 300, "g": 1.38, "max_level": 15, "effect": { "canteen": true } },
+    { "id": "lounge", "key": "SEC_LOUNGE", "size": [1, 1], "rank": 4, "build_cost": 900, "g": 1.38, "max_level": 15, "effect": { "lounge": true } },
+    { "id": "garage", "key": "SEC_GARAGE", "size": [2, 1], "rank": 5, "build_cost": 2500, "g": 1.45, "max_level": 20, "effect": { "garage": true } },
+    { "id": "trainhall", "key": "SEC_TRAINHALL", "size": [1, 1], "rank": 7, "build_cost": 4000, "g": 1.48, "max_level": 15, "effect": { "training": true } },
+    { "id": "crane", "key": "SEC_CRANE", "size": [1, 2], "rank": 10, "build_cost": 25000, "g": 1.50, "max_level": 15, "effect": { "crane": true } },
+    { "id": "dispatch", "key": "SEC_DISPATCH", "size": [1, 1], "rank": 12, "build_cost": 40000, "g": 1.50, "max_level": 15, "effect": { "dispatch": true } },
+    { "id": "refrigerator", "key": "SEC_REFRIGERATOR", "size": [1, 1], "rank": 14, "build_cost": 60000, "g": 1.45, "max_level": 15, "effect": { "refrigerator": true } },
+    { "id": "workshop", "key": "SEC_WORKSHOP", "size": [1, 1], "rank": 16, "build_cost": 150000, "g": 1.50, "max_level": 20, "effect": { "workshop": true } },
+    { "id": "orbital_dock", "key": "SEC_ORBITAL_DOCK", "size": [2, 1], "rank": 25, "build_cost": 5000000, "g": 1.55, "max_level": 30, "effect": { "orbital": true } }
+  ],
+  "modifiers": [
+    { "id": "none", "key": "MOD_NONE", "weight": 55, "effect": {} },
+    { "id": "golden", "key": "MOD_GOLDEN", "weight": 8, "effect": { "effect_mult": 0.15 } },
+    { "id": "spacious", "key": "MOD_SPACIOUS", "weight": 6, "effect": { "capacity_mult": 0.20 } },
+    { "id": "echo", "key": "MOD_ECHO", "weight": 5, "effect": { "neighbor_mult": 2.0 } },
+    { "id": "ex_office", "key": "MOD_EX_OFFICE", "weight": 5, "effect": { "extra_slot": 1 } },
+    { "id": "draft", "key": "MOD_DRAFT", "weight": 5, "effect": { "fatigue": -0.10, "morale": -2 } },
+    { "id": "rusty", "key": "MOD_RUSTY", "weight": 5, "effect": { "upgrade_discount": -0.15 } },
+    { "id": "hum", "key": "MOD_HUM", "weight": 4, "effect": { "speed": 0.05, "morale": -3 } },
+    { "id": "cramped", "key": "MOD_CRAMPED", "weight": 4, "effect": { "capacity_mult": -0.15, "build_discount": -0.25 } },
+    { "id": "mold", "key": "MOD_MOLD", "weight": 3, "effect": { "effect_mult": -0.10 } },
+    { "id": "cursed", "key": "MOD_CURSED", "weight": 3, "effect": { "effect_mult": -0.20 } },
+    { "id": "free", "key": "MOD_FREE", "weight": 2, "effect": { "build_discount": -1.0 } }
+  ],
+  "expansion": { "base_cost": 400, "growth": 2.1, "rank_base": 2, "rank_div": 2, "reroll_base": 0.15, "reroll_growth": 2, "max_rerolls": 3, "offer_count": 3 },
+  "adjacency": {
+    "canteen+dorm": { "fatigue_recovery": 0.10 },
+    "canteen+dock": { "morale": 0.05 },
+    "dock+storage": { "flow": 0.05 },
+    "dock+garage": { "movement": 0.08 },
+    "garage+workshop": { "repair_time": -0.15 },
+    "crane+dock": { "heavy_unload": 0.10 },
+    "lounge+trainhall": { "xp": 0.10 },
+    "dispatch+office": { "contract_slot": 1 },
+    "storage+workshop": { "parts": 0.10 },
+    "refrigerator+storage": { "spoilage": -0.30 }
+  },
+  "starting_grid": { "cols": 3, "rows": 2 },
+  "grid_max": { "cols": 9, "rows": 7 },
+  "upgrade": { "time_base": 30, "time_growth": 1.3, "instant_below": 5, "cancel_refund": 0.8, "demolish_refund": 0.4 }
+}

@@ -1,0 +1,19 @@
+{
+  "sim_dt": 1.0,
+  "offline_chunk_s": 10.0,
+  "q0_cap": 60.0,
+  "b1_cap_per_level": 100.0,
+  "b2_cap_base": 150.0,
+  "b2_cap_growth": 1.18,
+  "stations": ["unload", "move", "store"],
+  "auto_rate": { "unload": 3.0, "move": 8.0, "store": 8.0 },
+  "base_rate": { "unload": 12.0, "move": 18.0, "store": 15.0 },
+  "auto_rate_growth": 1.12,
+  "free_flow_base": 6.0,
+  "free_flow_growth": 1.1,
+  "free_flow_rank_bonus": 0.02,
+  "tariff_base": 1.18,
+  "contrib_divisor": 25.0,
+  "perishable_time_limit_s": 120.0,
+  "perishable_loss_per_min": 0.05
+}

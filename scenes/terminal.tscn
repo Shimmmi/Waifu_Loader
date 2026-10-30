@@ -1,0 +1,275 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://src/ui/terminal.gd" id="1_term"]
+[ext_resource type="Script" path="res://src/view/sector_view.gd" id="2_sectors"]
+[ext_resource type="Script" path="res://src/ui/panels/hire_panel.gd" id="3_hire"]
+[ext_resource type="Script" path="res://src/ui/panels/crew_panel.gd" id="4_crew"]
+[ext_resource type="Script" path="res://src/ui/panels/contracts_panel.gd" id="5_contracts"]
+[ext_resource type="Script" path="res://src/ui/panels/menu_panel.gd" id="6_menu"]
+[ext_resource type="Script" path="res://src/ui/panels/world_panel.gd" id="7_world"]
+[ext_resource type="Script" path="res://src/ui/tutorial.gd" id="8_tut"]
+
+[node name="Terminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_term")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.09, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HUD" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox/HUD"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Credits" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "¢ 0"
+
+[node name="Parts" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "Зч 0"
+
+[node name="Rank" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "Ранг 1"
+
+[node name="Spacer" type="Control" parent="VBox/HUD/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Shift" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "Смена --:--"
+
+[node name="Rush" type="Button" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "Рывок"
+
+[node name="ActionBar" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="UpDock" type="Button" parent="VBox/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Причал +"
+
+[node name="UpStorage" type="Button" parent="VBox/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Склад +"
+
+[node name="Expand" type="Button" parent="VBox/ActionBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Расширить"
+
+[node name="ReportLine" type="Label" parent="VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = ""
+
+[node name="Center" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SectorView" type="Control" parent="VBox/Center"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_sectors")
+
+[node name="HireScroll" type="ScrollContainer" parent="VBox/Center"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HirePanel" type="VBoxContainer" parent="VBox/Center/HireScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_hire")
+
+[node name="CrewScroll" type="ScrollContainer" parent="VBox/Center"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrewPanel" type="VBoxContainer" parent="VBox/Center/CrewScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_crew")
+
+[node name="ContractScroll" type="ScrollContainer" parent="VBox/Center"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContractPanel" type="VBoxContainer" parent="VBox/Center/ContractScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_contracts")
+
+[node name="MenuScroll" type="ScrollContainer" parent="VBox/Center"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="VBoxContainer" parent="VBox/Center/MenuScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("6_menu")
+
+[node name="WorldScroll" type="ScrollContainer" parent="VBox/Center"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldPanel" type="VBoxContainer" parent="VBox/Center/WorldScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("7_world")
+
+[node name="Nav" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TabTerminal" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Терминал"
+
+[node name="TabCrew" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Бригада"
+
+[node name="TabHire" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Найм"
+
+[node name="TabContracts" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Контракты"
+
+[node name="TabWorld" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Мир"
+
+[node name="TabMenu" type="Button" parent="VBox/Nav"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Меню"
+
+[node name="EventBanner" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="EBVBox" type="VBoxContainer" parent="EventBanner"]
+layout_mode = 2
+
+[node name="EBText" type="Label" parent="EventBanner/EBVBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+
+[node name="EBChoices" type="HBoxContainer" parent="EventBanner/EBVBox"]
+layout_mode = 2
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_tut")
+
+[node name="Panel" type="PanelContainer" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -60.0
+offset_right = 180.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Tutorial/Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Tutorial/Panel/VBox"]
+layout_mode = 2
+text = "Обучение"
+
+[node name="Text" type="Label" parent="Tutorial/Panel/VBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+
+[node name="Row" type="HBoxContainer" parent="Tutorial/Panel/VBox"]
+layout_mode = 2
+
+[node name="Next" type="Button" parent="Tutorial/Panel/VBox/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Далее"
+
+[node name="Skip" type="Button" parent="Tutorial/Panel/VBox/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Пропустить"

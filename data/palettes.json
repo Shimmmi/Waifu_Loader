@@ -1,0 +1,46 @@
+{
+  "skin": [
+    ["#f3d9c4", "#e2b99b", "#c08b6a"],
+    ["#e8c4a8", "#d4a574", "#a67c52"],
+    ["#c68642", "#8d5524", "#6b3f1f"]
+  ],
+  "hair": [
+    ["#2b1d14", "#4a3728", "#6b5344"],
+    ["#1a1a1a", "#333333", "#555555"],
+    ["#6b2d5c", "#9b4d7c", "#c47aaa"],
+    ["#3d5a80", "#5c7a9e", "#8eaccd"],
+    ["#fbf236", "#df7126", "#d95763"]
+  ],
+  "race_accent": {
+    "human": ["#d95763", "#fbf236"],
+    "silicate": ["#76428a", "#d77bba"],
+    "android": ["#5fcde4", "#cbdbfc"],
+    "gel": ["#99e550", "#37946e"],
+    "avian": ["#fbf236", "#df7126"]
+  },
+  "uniform_scheme": {
+    "loader": [["#306082", "#5b6ee1", "#639bff"]],
+    "driver": [["#3e3a32", "#8f563b", "#d9a066"]],
+    "crane": [["#45283c", "#76428a", "#d77bba"]],
+    "storekeeper": [["#524b24", "#8a6f30", "#eec39a"]],
+    "mechanic": [["#323c39", "#4b692f", "#99e550"]],
+    "foreman": [["#222034", "#45283c", "#d95763"]]
+  },
+  "index_roles": {
+    "0": "transparent",
+    "1": "outline",
+    "5": "skin_shadow",
+    "6": "skin",
+    "7": "skin_light",
+    "8": "hair_dark",
+    "9": "hair",
+    "10": "hair_light",
+    "11": "uniform_dark",
+    "12": "uniform",
+    "13": "uniform_light",
+    "14": "accent1",
+    "15": "accent2",
+    "16": "iris",
+    "17": "eye_white"
+  }
+}

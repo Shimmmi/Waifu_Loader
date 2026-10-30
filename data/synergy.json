@@ -1,0 +1,19 @@
+{
+  "class_chemistry": {
+    "crane+foreman": 6,
+    "driver+storekeeper": 6,
+    "loader+loader": 4,
+    "driver+mechanic": 5,
+    "foreman+storekeeper": 5,
+    "crane+loader": 4
+  },
+  "friendship_levels": [20, 50, 100, 200, 400],
+  "friendship_bonus_per_level": 2,
+  "pair_min": -25,
+  "pair_max": 30,
+  "speed_per_synergy": 0.5,
+  "morale_per_synergy_div": 10.0,
+  "morale_cap": 3.0,
+  "conflict_threshold": -15,
+  "conflict_chance": 0.08
+}

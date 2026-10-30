@@ -1,0 +1,12 @@
+# pxa v1
+@sheet head_demo frame=8x8 frames=1
+@legend . = 0 | o = 1 | s = 6 | k = 5 | h = 9 | e = 16 | w = 17
+@frame 0
+..oooo..
+.ohhhho.
+ohsssshho
+osewsews
+osssssss
+.osksso.
+..oooo..
+........

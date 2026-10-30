@@ -1,0 +1,23 @@
+{
+  "stars": [
+    { "id": "aries", "key": "STAR_ARIES", "element": "fire" },
+    { "id": "leo", "key": "STAR_LEO", "element": "fire" },
+    { "id": "sagittarius", "key": "STAR_SAGITTARIUS", "element": "fire" },
+    { "id": "taurus", "key": "STAR_TAURUS", "element": "earth" },
+    { "id": "virgo", "key": "STAR_VIRGO", "element": "earth" },
+    { "id": "capricorn", "key": "STAR_CAPRICORN", "element": "earth" },
+    { "id": "gemini", "key": "STAR_GEMINI", "element": "air" },
+    { "id": "libra", "key": "STAR_LIBRA", "element": "air" },
+    { "id": "aquarius", "key": "STAR_AQUARIUS", "element": "air" },
+    { "id": "cancer", "key": "STAR_CANCER", "element": "water" },
+    { "id": "scorpio", "key": "STAR_SCORPIO", "element": "water" },
+    { "id": "pisces", "key": "STAR_PISCES", "element": "water" }
+  ],
+  "element_compat": {
+    "fire": { "fire": 5, "earth": -5, "air": 15, "water": -15 },
+    "earth": { "fire": -5, "earth": 5, "air": -10, "water": 15 },
+    "air": { "fire": 15, "earth": -10, "air": 5, "water": -5 },
+    "water": { "fire": -15, "earth": 15, "air": -5, "water": 5 }
+  },
+  "same_sign_bonus": 8
+}

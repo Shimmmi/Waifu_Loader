@@ -1,0 +1,24 @@
+{
+  "source": "pcg-c-basic demo.c: pcg32_srandom_r(&rng, seed, seq), then successive pcg32_random_r",
+  "note": "Outputs stored as 8-digit hex strings. seed=42/seq=54 is the canonical pcg-c-basic reference; the others are regression anchors generated from the implementation once it matched that reference.",
+  "vectors": [
+    {
+      "seed": 42,
+      "seq": 54,
+      "count": 6,
+      "outputs": ["a15c02b7", "7b47f409", "ba1d3330", "83d2f293", "bfa4784b", "cbed606e"]
+    },
+    {
+      "seed": 0,
+      "seq": 0,
+      "count": 4,
+      "outputs": ["e4c14788", "379c6516", "5c4ab3bb", "601d23e0"]
+    },
+    {
+      "seed": 123456789,
+      "seq": 1,
+      "count": 5,
+      "outputs": ["b4a33584", "6c7617d9", "2736c6ce", "36f57889", "ffe8b0a6"]
+    }
+  ]
+}

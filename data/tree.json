@@ -1,0 +1,31 @@
+{
+  "cost_growth": 1.6,
+  "nodes": [
+    { "id": "clearing", "branch": "logistics", "key": "TREE_CLEARING", "max": 10, "base": 2, "effect": { "station_speed": 0.05 } },
+    { "id": "far_sight", "branch": "logistics", "key": "TREE_FAR_SIGHT", "max": 8, "base": 2, "effect": { "offline_cap_h": 1.0 } },
+    { "id": "night_eta", "branch": "logistics", "key": "TREE_NIGHT_ETA", "max": 10, "base": 2, "effect": { "offline_eta": 0.02 } },
+    { "id": "start_capital", "branch": "logistics", "key": "TREE_START_CAPITAL", "max": 5, "base": 2, "effect": { "start_credits": 500.0 } },
+    { "id": "fast_build", "branch": "logistics", "key": "TREE_FAST_BUILD", "max": 10, "base": 1, "effect": { "build_time": -0.05 } },
+    { "id": "second_crew", "branch": "logistics", "key": "TREE_SECOND_CREW", "max": 2, "base": 3, "effect": { "build_slots": 1 } },
+    { "id": "extended_plan", "branch": "logistics", "key": "TREE_EXTENDED_PLAN", "max": 2, "base": 4, "effect": { "grid_plus": 1 } },
+    { "id": "orbital_quota", "branch": "logistics", "key": "TREE_ORBITAL_QUOTA", "max": 10, "base": 3, "effect": { "flow": 0.10 } },
+
+    { "id": "reserve", "branch": "people", "key": "TREE_RESERVE", "max": 3, "base": 3, "effect": { "keep_workers": 1 } },
+    { "id": "life_school", "branch": "people", "key": "TREE_LIFE_SCHOOL", "max": 10, "base": 2, "effect": { "xp": 0.08 } },
+    { "id": "corp_spirit", "branch": "people", "key": "TREE_CORP_SPIRIT", "max": 5, "base": 2, "effect": { "morale": 1.0 } },
+    { "id": "time_mgmt", "branch": "people", "key": "TREE_TIME_MGMT", "max": 8, "base": 2, "effect": { "fatigue": -0.04 } },
+    { "id": "dream_agency", "branch": "people", "key": "TREE_DREAM_AGENCY", "max": 3, "base": 3, "effect": { "agency": 1 } },
+    { "id": "skilled_hands", "branch": "people", "key": "TREE_SKILLED_HANDS", "max": 5, "base": 3, "effect": { "hire_level": 1 } },
+    { "id": "long_list", "branch": "people", "key": "TREE_LONG_LIST", "max": 3, "base": 2, "effect": { "pinned_slots": 2 } },
+    { "id": "diplomacy", "branch": "people", "key": "TREE_DIPLOMACY", "max": 4, "base": 3, "effect": { "relations": 0.25 } },
+
+    { "id": "tariff_plus", "branch": "money", "key": "TREE_TARIFF_PLUS", "max": 15, "base": 2, "effect": { "income": 0.06 } },
+    { "id": "hire_discount", "branch": "money", "key": "TREE_HIRE_DISCOUNT", "max": 8, "base": 1, "effect": { "hire_cost": -0.05 } },
+    { "id": "thrift", "branch": "money", "key": "TREE_THRIFT", "max": 8, "base": 1, "effect": { "wages": -0.03 } },
+    { "id": "pricelist", "branch": "money", "key": "TREE_PRICELIST", "max": 10, "base": 2, "effect": { "contract_reward": 0.06 } },
+    { "id": "tax_haven", "branch": "money", "key": "TREE_TAX_HAVEN", "max": 5, "base": 2, "effect": { "penalty": -0.10 } },
+    { "id": "parts_bulk", "branch": "money", "key": "TREE_PARTS_BULK", "max": 10, "base": 2, "effect": { "parts": 0.10 } },
+    { "id": "auto_counter", "branch": "money", "key": "TREE_AUTO_COUNTER", "max": 6, "base": 2, "effect": { "rush_cd": -0.05 } },
+    { "id": "financial_genius", "branch": "money", "key": "TREE_FINANCIAL_GENIUS", "max": 5, "base": 3, "effect": { "parts_cap": 0.20 } }
+  ]
+}

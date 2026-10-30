@@ -1,0 +1,54 @@
+{
+  "categories": {
+    "skin": [
+      { "id": "classic", "key": "COS_SKIN_CLASSIC", "price": 0 },
+      { "id": "neon", "key": "COS_SKIN_NEON", "price": 300 },
+      { "id": "rust", "key": "COS_SKIN_RUST", "price": 300 },
+      { "id": "gold", "key": "COS_SKIN_GOLD", "price": 1000 }
+    ],
+    "frame": [
+      { "id": "none", "key": "COS_FRAME_NONE", "price": 0 },
+      { "id": "top100", "key": "COS_FRAME_TOP100", "price": 0 },
+      { "id": "top10", "key": "COS_FRAME_TOP10", "price": 0 },
+      { "id": "gates", "key": "COS_FRAME_GATES", "price": 0 },
+      { "id": "bronze", "key": "COS_FRAME_BRONZE", "price": 200 },
+      { "id": "silver", "key": "COS_FRAME_SILVER", "price": 400 },
+      { "id": "crystal", "key": "COS_FRAME_CRYSTAL", "price": 600 },
+      { "id": "flame", "key": "COS_FRAME_FLAME", "price": 400 },
+      { "id": "circuit", "key": "COS_FRAME_CIRCUIT", "price": 500 },
+      { "id": "void", "key": "COS_FRAME_VOID", "price": 700 }
+    ],
+    "title": [
+      { "id": "foreman", "key": "COS_TITLE_FOREMAN", "price": 0 },
+      { "id": "millionaire", "key": "COS_TITLE_MILLIONAIRE", "price": 0 },
+      { "id": "lift_operator", "key": "COS_TITLE_LIFT_OPERATOR", "price": 0 },
+      { "id": "orbital_boss", "key": "COS_TITLE_ORBITAL_BOSS", "price": 0 },
+      { "id": "rookie", "key": "COS_TITLE_ROOKIE", "price": 50 },
+      { "id": "dispatcher", "key": "COS_TITLE_DISPATCHER", "price": 80 },
+      { "id": "union_boss", "key": "COS_TITLE_UNION_BOSS", "price": 120 },
+      { "id": "duel_king", "key": "COS_TITLE_DUEL_KING", "price": 150 },
+      { "id": "night_shift", "key": "COS_TITLE_NIGHT_SHIFT", "price": 60 },
+      { "id": "crane_master", "key": "COS_TITLE_CRANE_MASTER", "price": 100 },
+      { "id": "dead_end_legend", "key": "COS_TITLE_DEAD_END_LEGEND", "price": 200 },
+      { "id": "cat_lover", "key": "COS_TITLE_CAT_LOVER", "price": 40 }
+    ],
+    "banner": [
+      { "id": "plain", "key": "COS_BANNER_PLAIN", "price": 0 },
+      { "id": "stars", "key": "COS_BANNER_STARS", "price": 100 },
+      { "id": "wrenches", "key": "COS_BANNER_WRENCHES", "price": 120 },
+      { "id": "neon_grid", "key": "COS_BANNER_NEON", "price": 160 },
+      { "id": "coffee", "key": "COS_BANNER_COFFEE", "price": 90 },
+      { "id": "rocket", "key": "COS_BANNER_ROCKET", "price": 180 }
+    ],
+    "avatar": [
+      { "id": "loader", "key": "COS_AVATAR_LOADER", "price": 0 },
+      { "id": "crane", "key": "COS_AVATAR_CRANE", "price": 40 },
+      { "id": "driver", "key": "COS_AVATAR_DRIVER", "price": 40 },
+      { "id": "mechanic", "key": "COS_AVATAR_MECHANIC", "price": 40 },
+      { "id": "foreman", "key": "COS_AVATAR_FOREMAN", "price": 60 },
+      { "id": "storekeeper", "key": "COS_AVATAR_STOREKEEPER", "price": 40 },
+      { "id": "cat", "key": "COS_AVATAR_CAT", "price": 80 },
+      { "id": "crate", "key": "COS_AVATAR_CRATE", "price": 20 }
+    ]
+  }
+}

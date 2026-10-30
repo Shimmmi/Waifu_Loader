@@ -1,0 +1,10 @@
+{
+  "currencies": [
+    { "id": "credits", "key": "CUR_CREDITS", "sign": "¢" },
+    { "id": "parts", "key": "CUR_PARTS", "sign": "Зч" },
+    { "id": "rep", "key": "CUR_REP", "sign": "★" },
+    { "id": "xp", "key": "CUR_XP", "sign": "XP" },
+    { "id": "shares", "key": "CUR_SHARES", "sign": "О" },
+    { "id": "tokens", "key": "CUR_TOKENS", "sign": "Ж" }
+  ]
+}

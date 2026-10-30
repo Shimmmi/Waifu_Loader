@@ -1,0 +1,12 @@
+{
+  "pack": "placeholder",
+  "phase": "P0",
+  "version": 1,
+  "required_clips": [
+    "idle_a", "walk", "carry_walk", "blocked", "tired_idle", "out_sit",
+    "celebrate", "spawn_door", "loader.pick_crate"
+  ],
+  "portrait_size": 48,
+  "sprite_size": [16, 24],
+  "head_size": 16
+}

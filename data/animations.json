@@ -1,0 +1,21 @@
+{
+  "clips": [
+    {"id": "idle_a", "frame": [16, 24], "frames": 2, "fps": 3, "loop": true},
+    {"id": "idle_b", "frame": [16, 24], "frames": 4, "fps": 4, "loop": true},
+    {"id": "walk", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "carry_walk", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "blocked", "frame": [16, 24], "frames": 2, "fps": 3, "loop": true},
+    {"id": "tired_idle", "frame": [16, 24], "frames": 2, "fps": 3, "loop": true},
+    {"id": "out_sit", "frame": [16, 24], "frames": 2, "fps": 2, "loop": true},
+    {"id": "celebrate", "frame": [16, 24], "frames": 4, "fps": 8, "loop": false},
+    {"id": "injured_leave", "frame": [16, 24], "frames": 4, "fps": 6, "loop": false},
+    {"id": "spawn_door", "frame": [16, 24], "frames": 4, "fps": 8, "loop": false},
+    {"id": "loader.pick_crate", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "loader.put_crate", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "driver.forklift_drive", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "storekeeper.scan", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "storekeeper.shelve", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "mechanic.repair", "frame": [16, 24], "frames": 4, "fps": 8, "loop": true},
+    {"id": "foreman.point", "frame": [16, 24], "frames": 4, "fps": 6, "loop": true}
+  ]
+}
