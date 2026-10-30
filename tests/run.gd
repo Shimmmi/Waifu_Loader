@@ -44,16 +44,30 @@ func _init() -> void:
 
 func _discover() -> Array[String]:
 	var out: Array[String] = []
-	var dir: DirAccess = DirAccess.open(TESTS_DIR)
+	var seen: Dictionary = {}
+	_discover_dir(TESTS_DIR, out, seen)
+	out.sort()
+	return out
+
+
+func _discover_dir(dir_path: String, out: Array[String], seen: Dictionary) -> void:
+	var dir: DirAccess = DirAccess.open(dir_path)
 	if dir == null:
-		push_error("run.gd: cannot open " + TESTS_DIR)
-		return out
+		push_error("run.gd: cannot open " + dir_path)
+		return
 	dir.list_dir_begin()
 	var f: String = dir.get_next()
 	while f != "":
-		if not dir.current_is_dir() and f.begins_with("test_") and f.ends_with(".gd"):
-			out.append(TESTS_DIR + "/" + f)
+		if f.begins_with("."):
+			f = dir.get_next()
+			continue
+		var path: String = dir_path.path_join(f)
+		if dir.current_is_dir():
+			_discover_dir(path, out, seen)
+		elif f.begins_with("test_") and f.ends_with(".gd"):
+			# Prefer first path; skip duplicate basenames (e.g. tests/ui copies).
+			if not seen.has(f):
+				seen[f] = true
+				out.append(path)
 		f = dir.get_next()
 	dir.list_dir_end()
-	out.sort()
-	return out

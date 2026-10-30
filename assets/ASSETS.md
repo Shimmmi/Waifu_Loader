@@ -19,6 +19,13 @@ since RU is the primary locale. No code change is needed to add or replace them.
 
 _(none yet — placeholder phase P0)_
 
+## Исходные изображения, созданные генератором ИИ
+
+Исходный арт, сгенерированный вне игры (ТЗ v0.3 §3 / §0.3), хранится в `art_src/gen/<race>/<class>/`.
+Каждое изображение записывается в `docs/art/GENLOG.md` с указанием сервиса/модели, seed и условий использования.
+В экспорт игры эти файлы **не попадают** (`exclude_filter` пресета Web: `art_src/*, docs/*`).
+Промпты: `docs/art/PROMPTS_LOADERS.md`. Вызовов ИИ из игры нет.
+
 ## Audio
 
 _(none yet)_
