@@ -524,3 +524,14 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - `docs/ITCH_PAGE.md` added: ready-to-paste itch title/short/long description
   (RU+EN), tags, content warning, publish checklist, and the post-publish
   log-verification command.
+### v0.3 Scale UI — Step 0
+
+- Branch `feat/ui-scale` (local `git init`; see QUESTIONS Q-1).
+- Created `docs/QUESTIONS.md`, `docs/FOUND_ISSUES.md`; path mapping in `DECISIONS.md`.
+- Status: done. Prompts file still missing (Q-1).
+
+### v0.3 Scale UI — Step 1
+
+- Golden S1 screenshots in `tests/golden/ui_scale/s1/` (9 screens, 480?270).
+- `docs/UI_INVENTORY.md` with live metrics; S1 fact vs TZ: nav_h 25, toolbar_h 41, btn_h 25, pad 6, gap 2, bar_h 8, scroll_w 12.
+- Status: done.

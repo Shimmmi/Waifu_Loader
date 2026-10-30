@@ -201,3 +201,8 @@ where a course had to be chosen. Format: date â€” question â€” choice â€” reason
 
 - **Choice:** `git init` locally, branch `feat/ui-scale`. Baseline commit of pre-task tree, then one commit per TZ step (IR-7).
 - **Reason:** Step 0 / IR-7 require a branch and per-step commits; only `.gitignore` existed. Remote/origin still open in `QUESTIONS.md` Q-1.
+
+## 2026-10-30 — v0.3 S1 metrics from live inventory (IR-15)
+
+- **Choice:** `ui_scale.json` S1 uses measured values: hud_h=24, nav_h=25, toolbar_h=41, btn_h=25, row_h=24, pad=6, gap=2, bar_h=8, scroll_w=12. S2/S3 stay as TZ table.
+- **Reason:** IR-15 — for 1? current code wins; inventory Step 1.
