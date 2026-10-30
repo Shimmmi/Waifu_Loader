@@ -6,7 +6,7 @@ extends Control
 signal jump_to(world: Vector2)
 
 var cam: Vector2 = Vector2.ZERO
-var view_size: Vector2 = Vector2(480, 184)
+var view_size: Vector2 = Vector2(480, 184)  # ui-lint-allow: terminal world physical size
 var zoom: float = 1.0
 
 

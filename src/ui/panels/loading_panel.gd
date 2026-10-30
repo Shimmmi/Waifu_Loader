@@ -46,11 +46,11 @@ func _ready() -> void:
 	if line_scene != null:
 		_scene = line_scene.instantiate()
 		_scene.size_flags_vertical = Control.SIZE_EXPAND_FILL
-		_scene.custom_minimum_size = Vector2(480, 176)
+		_scene.custom_minimum_size = Vector2(480, 176)  # ui-lint-allow: line scene physical size TZ §2.8
 		add_child(_scene)
 	else:
 		var stub := ColorRect.new()
-		stub.custom_minimum_size = Vector2(480, 176)
+		stub.custom_minimum_size = Vector2(480, 176)  # ui-lint-allow: line scene physical size TZ §2.8
 		stub.color = Color(0.08, 0.10, 0.14, 1)
 		add_child(stub)
 	_refresh()

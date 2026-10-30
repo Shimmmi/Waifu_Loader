@@ -19,7 +19,7 @@ var _mini_card: Control = null
 
 func _ready() -> void:
 	clip_contents = true
-	custom_minimum_size = Vector2(480, 176)
+	custom_minimum_size = Vector2(480, 176)  # ui-lint-allow: line scene physical size TZ §2.8
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_bench = HBoxContainer.new()
 	_bench.position = Vector2(4, 152)
