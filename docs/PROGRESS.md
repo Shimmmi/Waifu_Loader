@@ -575,15 +575,14 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - Verified live: S2 nav glyphs + compact HUD; S3 rush ⚡ / More / ShiftBar / FabBuild; ActionBar hidden.
 - Status: done (screenshots S2/S3 + T2 lint → step 10–11).
 
-### v0.3 Scale UI — Step 10 (in progress)
+### v0.3 Scale UI — Step 10
 
-- `src/core/ui_lint.gd` (`UiLint.lint_screen` / `source_lint`), `tools/ui_lint.gd` CLI, `tools/capture_ui.gd`.
-- Tests added: T2 layout smoke, T6 source lint, T7 persistence, T8 switch perf, T9 i18n keys.
-- `docs/UI_SCALE.md` drafted (step 12).
-- Status: done — headless suite green (17410 checks); `tools/ui_lint.gd` OK.
+- `src/core/ui_lint.gd`, `tools/ui_lint.gd` CLI, `tools/capture_ui.gd`.
+- Tests T2/T3/T5–T9; headless ALL PASSED.
+- Status: done.
 
-### v0.3 Scale UI — Step 11–12
+### v0.3 Scale UI — Steps 11–13
 
-- S2/S3 golden PNGs seeded (from S1; refresh with `tools/capture_ui.gd` for visual DoD).
-- `docs/UI_SCALE.md` present.
-- Status: goldens exist; visual re-capture + §2.16 checklist still recommended before PR.
+- Real S2/S3 goldens + `docs/screens/scale_row_s{1,2,3}.png` via `tools/capture_ui.gd` (S1 baselines preserved).
+- `docs/UI_SCALE.md`, `docs/ACCEPTANCE_v0.3.md` (§2.16).
+- Status: done for docs/goldens/checklist; step 14 PR needs a git remote.
