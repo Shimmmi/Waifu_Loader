@@ -1,4 +1,4 @@
-extends Control
+extends ScreenBase
 
 ## Terminal screen (spec §15.2 / v0.2). HUD, sector view, Rush, running shift,
 ## and seven bottom tabs including «Погрузка».
@@ -26,10 +26,14 @@ extends Control
 var _rank_bar: ProgressBar
 var _loading_scroll: Control
 var _current_tab: String = "terminal"
+var _ui_root: Control
+var _nav: HBoxContainer
+var _hud: Control
 
 
 func _ready() -> void:
 	ThemeFonts.apply()  # no-op until fonts are placed in assets/fonts/
+	_ensure_ui_root()
 	_ensure_screen_manager()
 	_ensure_rank_bar()
 	_ensure_loading_tab()
@@ -37,12 +41,12 @@ func _ready() -> void:
 	GameState.stats_changed.connect(_refresh)
 	GameState.shift_finished.connect(_on_shift_finished)
 	GameState.tab_requested.connect(_show)
-	$VBox/Nav/TabTerminal.pressed.connect(func(): _show("terminal"))
-	$VBox/Nav/TabCrew.pressed.connect(func(): _show("crew"))
-	$VBox/Nav/TabHire.pressed.connect(func(): _show("hire"))
-	$VBox/Nav/TabContracts.pressed.connect(func(): _show("contracts"))
-	$VBox/Nav/TabMenu.pressed.connect(func(): _show("menu"))
-	$VBox/Nav/TabWorld.pressed.connect(func(): _show("world"))
+	_nav.get_node("TabTerminal").pressed.connect(func(): _show("terminal"))
+	_nav.get_node("TabCrew").pressed.connect(func(): _show("crew"))
+	_nav.get_node("TabHire").pressed.connect(func(): _show("hire"))
+	_nav.get_node("TabContracts").pressed.connect(func(): _show("contracts"))
+	_nav.get_node("TabMenu").pressed.connect(func(): _show("menu"))
+	_nav.get_node("TabWorld").pressed.connect(func(): _show("world"))
 	GameState.event_shown.connect(_on_event_shown)
 	GameState.event_resolved.connect(_on_event_resolved)
 	_action_dock.pressed.connect(func(): GameState.upgrade_sector(GameState.sector_of_type("dock")))
@@ -54,6 +58,61 @@ func _ready() -> void:
 	_retranslate()
 	_show("terminal")
 	_refresh()
+	super._ready()
+
+
+## TZ v0.3 step 4: Hud + NavBar under UiRoot; Content keeps middle chrome (1× look).
+func _ensure_ui_root() -> void:
+	if get_node_or_null("UiLayer") != null:
+		_ui_root = $UiLayer/UiRoot
+		_hud = _ui_root.get_node("Hud").get_child(0) as Control
+		_nav = _ui_root.get_node("NavBar").get_child(0) as HBoxContainer
+		return
+	var vbox: VBoxContainer = $VBox
+	_hud = vbox.get_node("HUD") as Control
+	_nav = vbox.get_node("Nav") as HBoxContainer
+	var layer := CanvasLayer.new()
+	layer.name = "UiLayer"
+	layer.layer = 10
+	add_child(layer)
+	var packed: PackedScene = load("res://src/ui/UiRoot.tscn") as PackedScene
+	_ui_root = packed.instantiate() as Control
+	layer.add_child(_ui_root)
+	var content: Control = _ui_root.get_node("Content")
+	var hud_slot: Control = _ui_root.get_node("Hud")
+	var nav_slot: Control = _ui_root.get_node("NavBar")
+	# Reparent HUD into Hud slot (full slot size).
+	vbox.remove_child(_hud)
+	hud_slot.add_child(_hud)
+	_hud.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# Reparent Nav into NavBar slot.
+	vbox.remove_child(_nav)
+	nav_slot.add_child(_nav)
+	_nav.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# Move remaining VBox into Content with chrome margins so 1× layout matches.
+	remove_child(vbox)
+	content.add_child(vbox)
+	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_apply_content_margins(vbox)
+	# Overlays: EventBanner + Tutorial stay as Terminal children for now (step 6).
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func apply_scale(_s: int) -> void:
+	if _ui_root == null:
+		return
+	var vbox: Control = _ui_root.get_node_or_null("Content/VBox") as Control
+	if vbox:
+		_apply_content_margins(vbox)
+
+
+func _apply_content_margins(vbox: Control) -> void:
+	var hud_h: float = float(UiScale.metric("hud_h"))
+	var nav_h: float = float(UiScale.metric("nav_h"))
+	vbox.offset_top = hud_h
+	vbox.offset_bottom = -nav_h
+	vbox.offset_left = 0.0
+	vbox.offset_right = 0.0
 
 
 func _ensure_screen_manager() -> void:
@@ -75,7 +134,7 @@ func _ensure_rank_bar() -> void:
 	_rank_bar.max_value = 100.0
 	_rank_bar.show_percentage = false
 	_rank_bar.tooltip_text = ""
-	var hbox: Node = $VBox/HUD/HBox
+	var hbox: Node = _hud.get_node("HBox")
 	var rank_idx: int = _rank.get_index()
 	hbox.add_child(_rank_bar)
 	hbox.move_child(_rank_bar, rank_idx + 1)
@@ -83,17 +142,16 @@ func _ensure_rank_bar() -> void:
 
 func _ensure_loading_tab() -> void:
 	# Insert «Погрузка» tab button after Terminal if missing.
-	var nav: HBoxContainer = $VBox/Nav
-	if nav.get_node_or_null("TabLoading") == null:
+	if _nav.get_node_or_null("TabLoading") == null:
 		var btn := Button.new()
 		btn.name = "TabLoading"
 		btn.text = Loc.t("nav.loading")
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		btn.pressed.connect(func(): _show("loading"))
-		nav.add_child(btn)
-		nav.move_child(btn, 1)
+		_nav.add_child(btn)
+		_nav.move_child(btn, 1)
 	# Loading panel host.
-	var center: Control = $VBox/Center
+	var center: Control = _ui_root.get_node("Content/VBox/Center")
 	_loading_scroll = center.get_node_or_null("LoadingScroll")
 	if _loading_scroll == null:
 		_loading_scroll = ScrollContainer.new()
@@ -112,15 +170,15 @@ func _ensure_loading_tab() -> void:
 
 
 func _retranslate() -> void:
-	$VBox/Nav/TabTerminal.text = Loc.t("nav.terminal")
-	var tab_loading: Button = $VBox/Nav.get_node_or_null("TabLoading")
+	_nav.get_node("TabTerminal").text = Loc.t("nav.terminal")
+	var tab_loading: Button = _nav.get_node_or_null("TabLoading")
 	if tab_loading:
 		tab_loading.text = Loc.t("nav.loading")
-	$VBox/Nav/TabCrew.text = Loc.t("nav.crew")
-	$VBox/Nav/TabHire.text = Loc.t("nav.hire")
-	$VBox/Nav/TabContracts.text = Loc.t("nav.contracts")
-	$VBox/Nav/TabWorld.text = Loc.t("nav.world")
-	$VBox/Nav/TabMenu.text = Loc.t("nav.menu")
+	_nav.get_node("TabCrew").text = Loc.t("nav.crew")
+	_nav.get_node("TabHire").text = Loc.t("nav.hire")
+	_nav.get_node("TabContracts").text = Loc.t("nav.contracts")
+	_nav.get_node("TabWorld").text = Loc.t("nav.world")
+	_nav.get_node("TabMenu").text = Loc.t("nav.menu")
 	_rush_button.text = Loc.t("hud.rush")
 
 
@@ -136,7 +194,7 @@ func _show(which: String) -> void:
 	_world_scroll.visible = which == "world"
 	_action_bar.visible = which == "terminal"
 	# Isolation: inactive tabs stay out of scroll (v0.2 §2.5).
-	for child in $VBox/Center.get_children():
+	for child in _ui_root.get_node("Content/VBox/Center").get_children():
 		if child is ScrollContainer or child == _sectors:
 			continue
 

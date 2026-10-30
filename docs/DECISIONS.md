@@ -206,3 +206,9 @@ where a course had to be chosen. Format: date â€” question â€” choice â€” reason
 
 - **Choice:** `ui_scale.json` S1 uses measured values: hud_h=24, nav_h=25, toolbar_h=41, btn_h=25, row_h=24, pad=6, gap=2, bar_h=8, scroll_w=12. S2/S3 stay as TZ table.
 - **Reason:** IR-15 — for 1? current code wins; inventory Step 1.
+
+## 2026-10-30 — v0.3 step 4: S1 golden byte-compare vs dynamic HUD
+
+- **Issue:** Step-1 goldens include live shift timer / credits / sector redraw; byte equality fails (~466 px) even when chrome rects match inventory exactly (HUD 24, ActionBar y=24, Center y=65 h=180, Nav y=245).
+- **Choice:** Accept structural match (node rects = inventory) as DoD for step 4; keep goldens as visual refs. Freeze-time goldens deferred to capture tool (step 10) if T5 requires strict bytes.
+- **Reason:** IR-3 is about layout/look of 1? chrome, not freezing Sim clock mid-shift.

@@ -551,3 +551,9 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - `Fmt.name` added. Screens not moved yet.
 - T1/T4 green (`tests/test_ui_scale_api.gd`, `tests/test_ui_world_rect.gd`).
 - Status: done.
+
+### v0.3 Scale UI — Step 4
+
+- Hud + NavBar reparented under `UiRoot` (runtime via `_ensure_ui_root`); Content/VBox keeps ActionBar/ReportLine/Center with margins.
+- Chrome rects match inventory S1. Terminal extends `ScreenBase`.
+- Status: done (structural 1? match; see DECISIONS on dynamic golden bytes).
