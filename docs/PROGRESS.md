@@ -535,3 +535,11 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - Golden S1 screenshots in `tests/golden/ui_scale/s1/` (9 screens, 480?270).
 - `docs/UI_INVENTORY.md` with live metrics; S1 fact vs TZ: nav_h 25, toolbar_h 41, btn_h 25, pad 6, gap 2, bar_h 8, scroll_w 12.
 - Status: done.
+
+### v0.3 Scale UI — Step 2
+
+- Proto `tmp/ui_scale_proto.tscn`: UiRoot.scale=s, NEAREST, mouse_filter IGNORE.
+- Desktop: crisp pixel doubling; btn counter; world `_unhandled_input`; scroll wheel; no console errors/warnings.
+- Web export (proto as temporary main): load OK; 1?>2?; btn click increments.
+- Screenshots `docs/screens/ui_proto_s{1,2,3}.png`. Scene deleted after gate.
+- Status: done (gate passed).
