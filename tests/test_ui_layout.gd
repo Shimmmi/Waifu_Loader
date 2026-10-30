@@ -1,18 +1,25 @@
 extends TestCase
 
-## T2 — UiLint.lint_screen on present screens (smoke; full golden capture in step 11).
+## T2 — lint_screen smoke (TZ §2.14).
 
 
-func test_lint_uiscale_root() -> void:
+func _make_scale() -> Node:
+	var us: Node = (load("res://src/core/ui_scale.gd") as GDScript).new()
+	us.set("_metrics", us.call("_load_metrics"))
+	return us
+
+
+func test_lint_empty_root() -> void:
+	var us: Node = _make_scale()
+	var lint: RefCounted = (load("res://src/core/ui_lint.gd") as GDScript).new()
 	var root := Control.new()
 	root.name = "UiRoot"
-	root.size = UiScale.logical_size()
-	UiScale.register_root(root)
+	us.call("register_root", root)
+	assert_true(lint != null)
 	for s in [1, 2, 3]:
-		UiScale.set_scale(s, false)
-		root.size = UiScale.logical_size()
-		var hits: Array = UiLint.lint_screen(root)
-		# Empty root should be clean.
+		us.call("set_scale", s, false)
+		assert_eq(us.call("logical_size"), Vector2(480.0 / float(s), 270.0 / float(s)), "logical S%d" % s)
+		var hits: Array = lint.call("lint_screen", root)
 		assert_eq(hits.size(), 0, "empty root S%d hits=%s" % [s, str(hits)])
-	UiScale.set_scale(1, false)
 	root.free()
+	us.free()
