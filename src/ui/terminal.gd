@@ -94,8 +94,52 @@ func _ensure_ui_root() -> void:
 	content.add_child(vbox)
 	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_apply_content_margins(vbox)
-	# Overlays: EventBanner + Tutorial stay as Terminal children for now (step 6).
+	var overlays: Control = _ui_root.get_node("Overlays")
+	UiToast.bind_host(overlays)
+	UiTooltip.bind_host(overlays)
+	UiConfirm.bind_host(overlays)
+	UiSelect.bind_host(overlays)
+	_ensure_world_clip()
+	# EventBanner + Tutorial stay as Terminal children for now.
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+## TZ §2.9 — WorldClip outside UiRoot; SectorView becomes its child.
+func _ensure_world_clip() -> void:
+	if get_node_or_null("World") != null:
+		return
+	var world := Node2D.new()
+	world.name = "World"
+	add_child(world)
+	move_child(world, 0)
+	var clip := Control.new()
+	clip.name = "WorldClip"
+	clip.set_script(load("res://src/ui/world_clip.gd"))
+	world.add_child(clip)
+	# Pull SectorView out of UI Content into the unscaled world clip.
+	if _sectors.get_parent():
+		_sectors.get_parent().remove_child(_sectors)
+	clip.add_child(_sectors)
+	_sectors.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_update_world_clip()
+
+
+func _update_world_clip() -> void:
+	var clip: Control = get_node_or_null("World/WorldClip") as Control
+	if clip == null:
+		return
+	var tab: String = _current_tab
+	var show_world: bool = tab == "terminal" or tab == "loading"
+	clip.visible = show_world
+	_sectors.visible = tab == "terminal"
+	if not show_world:
+		return
+	var id: String = "terminal" if tab == "terminal" else "line"
+	var r: Rect2 = UiScale.world_rect(id)
+	clip.position = r.position
+	clip.size = r.size
+	if tab == "terminal":
+		_sectors.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 
 func apply_scale(_s: int) -> void:
@@ -104,6 +148,23 @@ func apply_scale(_s: int) -> void:
 	var vbox: Control = _ui_root.get_node_or_null("Content/VBox") as Control
 	if vbox:
 		_apply_content_margins(vbox)
+	_update_world_clip()
+	# Fan-out to tab panels under Content (VBox panels implement apply_scale optionally).
+	var center: Node = _ui_root.get_node_or_null("Content/VBox/Center")
+	if center:
+		for child in center.get_children():
+			_fanout_apply_scale(child, _s)
+
+
+func _fanout_apply_scale(n: Node, s: int) -> void:
+	# Only UI panel scripts under src/ui (avoid view nodes with different apply_scale).
+	var scr: Script = n.get_script()
+	if scr != null and n is Control and n.has_method("apply_scale"):
+		var path: String = scr.resource_path
+		if path.begins_with("res://src/ui/"):
+			n.call("apply_scale", s)
+	for c in n.get_children():
+		_fanout_apply_scale(c, s)
 
 
 func _apply_content_margins(vbox: Control) -> void:
@@ -184,7 +245,6 @@ func _retranslate() -> void:
 
 func _show(which: String) -> void:
 	_current_tab = which
-	_sectors.visible = which == "terminal"
 	if _loading_scroll:
 		_loading_scroll.visible = which == "loading"
 	_hire_scroll.visible = which == "hire"
@@ -193,9 +253,10 @@ func _show(which: String) -> void:
 	_menu_scroll.visible = which == "menu"
 	_world_scroll.visible = which == "world"
 	_action_bar.visible = which == "terminal"
+	_update_world_clip()
 	# Isolation: inactive tabs stay out of scroll (v0.2 §2.5).
 	for child in _ui_root.get_node("Content/VBox/Center").get_children():
-		if child is ScrollContainer or child == _sectors:
+		if child is ScrollContainer:
 			continue
 
 
@@ -243,8 +304,14 @@ func _refresh() -> void:
 	_rank.text = Loc.t("hud.rank", [GameState.rank])
 	if _rank_bar:
 		_rank_bar.value = pct
-		_rank_bar.tooltip_text = Loc.t("hud.rank_tip", [
+		var tip: String = Loc.t("hud.rank_tip", [
 			GameState.rank + 1, Fmt.num(GameState.rep - cur), Fmt.num(need - cur)])
+		_rank_bar.set_meta("ui_tooltip", tip)
+		_rank.set_meta("ui_tooltip", tip)
+		if not _rank_bar.has_meta("ui_tip_bound"):
+			UiTooltip.attach(_rank_bar, tip)
+			UiTooltip.attach(_rank, tip)
+			_rank_bar.set_meta("ui_tip_bound", true)
 
 	var shift: Shift = GameState.shift
 	if shift != null:
@@ -279,8 +346,7 @@ func _refresh() -> void:
 
 func _on_rank_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if _rank_bar:
-			_rank.tooltip_text = _rank_bar.tooltip_text
+		pass  # tip via UiTooltip
 
 
 func _on_rush() -> void:

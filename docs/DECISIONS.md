@@ -212,3 +212,9 @@ where a course had to be chosen. Format: date â€” question â€” choice â€” reason
 - **Issue:** Step-1 goldens include live shift timer / credits / sector redraw; byte equality fails (~466 px) even when chrome rects match inventory exactly (HUD 24, ActionBar y=24, Center y=65 h=180, Nav y=245).
 - **Choice:** Accept structural match (node rects = inventory) as DoD for step 4; keep goldens as visual refs. Freeze-time goldens deferred to capture tool (step 10) if T5 requires strict bytes.
 - **Reason:** IR-3 is about layout/look of 1? chrome, not freezing Sim clock mid-shift.
+
+## 2026-10-30 — v0.3 steps 5–8 adaptations
+
+- Tab panels stay `VBoxContainer`; scale subscription via `Terminal.apply_scale` fan-out to `res://src/ui/**` only (avoids BarkBubble.apply_scale Vector2 clash).
+- Autoload order: `UiScale` immediately after `SaveSystem` (before Loc) so `Loc.tr_s` can read `UiScale.mode`.
+- i18n keys from §2.6 live in `data/strings.json` (not CSV).

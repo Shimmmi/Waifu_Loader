@@ -557,3 +557,12 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - Hud + NavBar reparented under `UiRoot` (runtime via `_ensure_ui_root`); Content/VBox keeps ActionBar/ReportLine/Center with margins.
 - Chrome rects match inventory S1. Terminal extends `ScreenBase`.
 - Status: done (structural 1? match; see DECISIONS on dynamic golden bytes).
+
+### v0.3 Scale UI — Steps 5–8
+
+- Step 5: tab screens live under `UiRoot/Content`; `Terminal` (ScreenBase) fans out `apply_scale` to `src/ui/**` panels.
+- Step 6: `UiToast`, `UiTooltip`, `UiConfirm`, `UiSelect`; bound to Overlays; rank tip uses UiTooltip.
+- Step 7: `World/WorldClip` hosts `SectorView`; rect from `UiScale.world_rect`.
+- Step 8: `ScaleRow` in Menu after language; i18n keys in `strings.json`; `Loc.tr_s`; `ui_scale` persist via SaveSystem.
+- `tests/ui/screens.json` added.
+- Status: done for 5–8 scaffold; step 9 adaptation matrix still pending.

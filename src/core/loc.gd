@@ -30,6 +30,14 @@ func t(key: String, args: Array = []) -> String:
 	return text % args
 
 
+## Short/scaled key: prefers `key_S1|S2|S3` then falls back to `key` (TZ §2.7 G15).
+func tr_s(key: String, args: Array = []) -> String:
+	var scaled: String = key + "_" + UiScale.mode
+	if _tables.get(code, {}).has(scaled) or _tables.get(DEFAULT_CODE, {}).has(scaled):
+		return t(scaled, args)
+	return t(key, args)
+
+
 func _lookup(key: String) -> String:
 	var table: Dictionary = _tables.get(code, {})
 	if table.has(key):

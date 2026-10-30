@@ -1,0 +1,18 @@
+{
+  "screens": [
+    {"id": "hud", "scene": "res://scenes/terminal.tscn", "present": true},
+    {"id": "nav", "scene": "res://scenes/terminal.tscn", "present": true},
+    {"id": "terminal", "scene": "res://scenes/terminal.tscn", "present": true},
+    {"id": "line", "scene": "res://src/ui/panels/loading_panel.gd", "present": true},
+    {"id": "crew", "scene": "res://src/ui/panels/crew_panel.gd", "present": true},
+    {"id": "card", "scene": "res://src/ui/crew/WorkerCard.tscn", "present": true},
+    {"id": "hire", "scene": "res://src/ui/panels/hire_panel.gd", "present": true},
+    {"id": "candidate", "scene": "res://src/ui/crew/CandidateCard.tscn", "present": true},
+    {"id": "contracts", "scene": "res://src/ui/panels/contracts_panel.gd", "present": true},
+    {"id": "world", "scene": "res://src/ui/panels/world_panel.gd", "present": true},
+    {"id": "menu", "scene": "res://src/ui/panels/menu_panel.gd", "present": true},
+    {"id": "modal_event", "scene": "res://scenes/terminal.tscn", "present": true},
+    {"id": "modal_shift", "scene": "", "present": false},
+    {"id": "modal_confirm", "scene": "res://src/ui/widgets/ui_confirm.gd", "present": true}
+  ]
+}
