@@ -21,8 +21,11 @@ var _shop_index: Dictionary = {}
 
 func _ready() -> void:
 	_header = Label.new()
+	_header.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_elev = Label.new()
+	_elev.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_ach = Label.new()
+	_ach.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	add_child(_header)
 	add_child(_elev)
 	add_child(_ach)
@@ -30,7 +33,8 @@ func _ready() -> void:
 	var settings_title := Label.new()
 	settings_title.set_meta("loc", "menu.settings")
 	add_child(settings_title)
-	var lang_row := HBoxContainer.new()
+	var lang_row := HFlowContainer.new()
+	lang_row.name = "LangRow"
 	var lang_lbl := Label.new()
 	lang_lbl.set_meta("loc", "menu.language")
 	lang_row.add_child(lang_lbl)
@@ -38,6 +42,10 @@ func _ready() -> void:
 	_lang_btn.pressed.connect(_on_lang)
 	lang_row.add_child(_lang_btn)
 	add_child(lang_row)
+	# TZ v0.3 §2.6 — UI scale row between language and sound.
+	var scale_row_scene: PackedScene = load("res://src/ui/settings/ScaleRow.tscn") as PackedScene
+	if scale_row_scene:
+		add_child(scale_row_scene.instantiate())
 	_mute_btn = Button.new()
 	_mute_btn.pressed.connect(_on_mute)
 	add_child(_mute_btn)
@@ -125,6 +133,26 @@ func _ready() -> void:
 	GameState.stats_changed.connect(_refresh)
 	_retranslate()
 	_refresh()
+
+
+func apply_scale(_s: int) -> void:
+	_header.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_elev.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_ach.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_help_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_privacy_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	for row in _directive_rows:
+		var lbl: Label = row.get_meta("label")
+		lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if row is HBoxContainer and _s >= 2:
+			# Keep claim button reachable; wrap label text.
+			pass
+	_lang_btn.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	_mute_btn.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	_stats_btn.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	_net_btn.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	_reorg.custom_minimum_size.y = float(UiScale.metric("btn_h"))
 
 
 func _retranslate() -> void:

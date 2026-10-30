@@ -524,19 +524,19 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - `docs/ITCH_PAGE.md` added: ready-to-paste itch title/short/long description
   (RU+EN), tags, content warning, publish checklist, and the post-publish
   log-verification command.
-### v0.3 Scale UI — Step 0
+### v0.3 Scale UI ï¿½ Step 0
 
 - Branch `feat/ui-scale` (local `git init`; see QUESTIONS Q-1).
 - Created `docs/QUESTIONS.md`, `docs/FOUND_ISSUES.md`; path mapping in `DECISIONS.md`.
 - Status: done. Prompts file still missing (Q-1).
 
-### v0.3 Scale UI — Step 1
+### v0.3 Scale UI ï¿½ Step 1
 
 - Golden S1 screenshots in `tests/golden/ui_scale/s1/` (9 screens, 480?270).
 - `docs/UI_INVENTORY.md` with live metrics; S1 fact vs TZ: nav_h 25, toolbar_h 41, btn_h 25, pad 6, gap 2, bar_h 8, scroll_w 12.
 - Status: done.
 
-### v0.3 Scale UI — Step 2
+### v0.3 Scale UI ï¿½ Step 2
 
 - Proto `tmp/ui_scale_proto.tscn`: UiRoot.scale=s, NEAREST, mouse_filter IGNORE.
 - Desktop: crisp pixel doubling; btn counter; world `_unhandled_input`; scroll wheel; no console errors/warnings.
@@ -544,7 +544,7 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - Screenshots `docs/screens/ui_proto_s{1,2,3}.png`. Scene deleted after gate.
 - Status: done (gate passed).
 
-### v0.3 Scale UI — Step 3
+### v0.3 Scale UI ï¿½ Step 3
 
 - Created `data/ui_scale.json` (S1 from inventory IR-15; S2/S3 from TZ).
 - Autoload `UiScale` (`src/core/ui_scale.gd`), `UiRoot.tscn` + `ui_root.gd`, `screen_base.gd`, `scale_visibility.gd`, `world_clip.gd`.
@@ -552,17 +552,25 @@ is the item to watch (a new player's first rank-up). Noted for a balance pass.
 - T1/T4 green (`tests/test_ui_scale_api.gd`, `tests/test_ui_world_rect.gd`).
 - Status: done.
 
-### v0.3 Scale UI — Step 4
+### v0.3 Scale UI ï¿½ Step 4
 
 - Hud + NavBar reparented under `UiRoot` (runtime via `_ensure_ui_root`); Content/VBox keeps ActionBar/ReportLine/Center with margins.
 - Chrome rects match inventory S1. Terminal extends `ScreenBase`.
 - Status: done (structural 1? match; see DECISIONS on dynamic golden bytes).
 
-### v0.3 Scale UI — Steps 5–8
+### v0.3 Scale UI ï¿½ Steps 5ï¿½8
 
 - Step 5: tab screens live under `UiRoot/Content`; `Terminal` (ScreenBase) fans out `apply_scale` to `src/ui/**` panels.
 - Step 6: `UiToast`, `UiTooltip`, `UiConfirm`, `UiSelect`; bound to Overlays; rank tip uses UiTooltip.
 - Step 7: `World/WorldClip` hosts `SectorView`; rect from `UiScale.world_rect`.
 - Step 8: `ScaleRow` in Menu after language; i18n keys in `strings.json`; `Loc.tr_s`; `ui_scale` persist via SaveSystem.
 - `tests/ui/screens.json` added.
-- Status: done for 5–8 scaffold; step 9 adaptation matrix still pending.
+- Status: done for 5â€“8 scaffold.
+
+### v0.3 Scale UI â€” Step 9
+
+- HUD/NavBar/Terminal toolbar per Â§2.8: `HudDetails`, `FabBuild`, `BuildPanel`, `NavIcon`, short i18n (`hud.rank_S2`, `TB_*_S2`, â€¦).
+- Menu/Crew/Hire/World/Contracts/Loading + WorkerCard/CandidateCard adapted; `CardPager`, `LinePanel`.
+- D5 recorded in `FOUND_ISSUES.md`.
+- Verified live: S2 nav glyphs + compact HUD; S3 rush âš¡ / More / ShiftBar / FabBuild; ActionBar hidden.
+- Status: done (screenshots S2/S3 + T2 lint â†’ step 10â€“11).

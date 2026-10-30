@@ -15,6 +15,10 @@ func bind(wid: String, mgr: Node = null) -> void:
 	_build()
 
 
+func apply_scale(_s: int) -> void:
+	_build()
+
+
 func _worker() -> Worker:
 	for c in GameState.board.pool:
 		if c.id == worker_id:
@@ -34,8 +38,14 @@ func _build() -> void:
 			_mgr.close_card())
 	add_child(dim)
 	var panel := PanelContainer.new()
-	panel.position = Vector2(40, 20)
-	panel.custom_minimum_size = Vector2(400, 220)
+	var margin: float = float(UiScale.metric("panel_margin"))
+	var ls: Vector2 = UiScale.logical_size()
+	if UiScale.scale_factor == 1:
+		panel.position = Vector2(40, 20)
+		panel.custom_minimum_size = Vector2(400, 220)
+	else:
+		panel.position = Vector2(margin, margin)
+		panel.custom_minimum_size = Vector2(ls.x - 2.0 * margin, ls.y - 2.0 * margin)
 	add_child(panel)
 	_root = VBoxContainer.new()
 	panel.add_child(_root)
@@ -110,8 +120,11 @@ func _refresh() -> void:
 	var reason: String = GameState.hire_block_reason(w.id)
 	var hire := Button.new()
 	hire.text = Loc.t("hire.hire", [Fmt.num(GameState.board.hire_cost(w))])
+	hire.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	hire.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	hire.disabled = reason != ""
-	hire.tooltip_text = reason
+	if reason != "":
+		UiTooltip.attach(hire, reason)
 	hire.pressed.connect(func():
 		if GameState.hire(w.id):
 			if _mgr: _mgr.close_card())

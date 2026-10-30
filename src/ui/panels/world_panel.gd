@@ -30,8 +30,12 @@ var _donate_btn: Button
 var _board_index: int = 0
 var _fetch_timer: Timer
 var _opponents_box: VBoxContainer
+var _section_idx: int = 0
+var _pager: HBoxContainer
+var _section_hosts: Array = []
 const BOARD_IDS: Array[String] = ["tonnes_weekly", "tonnes_alltime", "best_tpm_weekly", "gold_weekly", "reorg_alltime"]
 const CUP_STATIONS: Array[String] = ["unload", "move", "store"]
+const SECTION_KEYS: Array[String] = ["world.build", "world.board", "world.assign", "world.brigade", "world.opponents"]
 
 
 func _ready() -> void:
@@ -147,6 +151,66 @@ func _ready() -> void:
 	_fetch()
 	_retranslate()
 	_refresh()
+	_ensure_pager()
+
+
+func apply_scale(s: int) -> void:
+	_ensure_pager()
+	if _pager:
+		_pager.visible = s >= 2
+	_apply_section_visibility()
+	_global_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_boards_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_daily_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_cup_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_social_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_board_btn.custom_minimum_size.y = float(UiScale.metric("btn_h"))
+	# Board cycle already uses a button (not OptionButton) — S2/S3: ◀ ▶ label.
+	if s >= 2:
+		_board_btn.text = "◀ %s ▶" % Loc.board_name(BOARD_IDS[_board_index])
+
+
+func _ensure_pager() -> void:
+	if _pager != null:
+		return
+	_pager = HBoxContainer.new()
+	_pager.name = "SectionPager"
+	var prev := Button.new()
+	prev.text = "◀"
+	prev.custom_minimum_size = Vector2(float(UiScale.metric("btn_h")), float(UiScale.metric("btn_h")))
+	prev.pressed.connect(func():
+		_section_idx = (_section_idx - 1 + SECTION_KEYS.size()) % SECTION_KEYS.size()
+		_apply_section_visibility()
+	)
+	var title := Label.new()
+	title.name = "PagerTitle"
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var next := Button.new()
+	next.text = "▶"
+	next.custom_minimum_size = Vector2(float(UiScale.metric("btn_h")), float(UiScale.metric("btn_h")))
+	next.pressed.connect(func():
+		_section_idx = (_section_idx + 1) % SECTION_KEYS.size()
+		_apply_section_visibility()
+	)
+	_pager.add_child(prev)
+	_pager.add_child(title)
+	_pager.add_child(next)
+	add_child(_pager)
+	move_child(_pager, 0)
+	_pager.visible = false
+
+
+func _apply_section_visibility() -> void:
+	# On S1 show all; on S2/S3 keep layout intact but mark pager title (D5 block stays).
+	if _pager == null:
+		return
+	var title: Label = _pager.get_node_or_null("PagerTitle") as Label
+	if title:
+		var key: String = SECTION_KEYS[_section_idx]
+		title.text = Loc.t(key) if key != "world.build" else Loc.t("world.title")
+	if UiScale.scale_factor < 2:
+		return
 
 
 ## Kick off background GETs for every path this panel shows.

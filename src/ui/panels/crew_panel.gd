@@ -15,6 +15,10 @@ func _ready() -> void:
 	_rebuild()
 
 
+func apply_scale(_s: int) -> void:
+	_rebuild()
+
+
 func _maybe_rebuild() -> void:
 	if visible:
 		_rebuild()
@@ -26,6 +30,7 @@ func _rebuild() -> void:
 
 	var header := Label.new()
 	header.text = Loc.t("crew.synergy", [GameState.synergy.line_synergy(GameState.assigned_workers())])
+	header.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	add_child(header)
 
 	for station in ["unload", "move", "store", "support"]:
@@ -33,6 +38,7 @@ func _rebuild() -> void:
 
 	var watch := Button.new()
 	watch.text = Loc.t("line.watch")
+	watch.custom_minimum_size.y = float(UiScale.metric("btn_h"))
 	watch.pressed.connect(func(): GameState.request_tab("loading"))
 	add_child(watch)
 
@@ -46,15 +52,19 @@ func _rebuild() -> void:
 
 func _station_row(station: String) -> Control:
 	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", UiScale.metric("gap"))
 	var name_lbl := Label.new()
 	name_lbl.text = Loc.station_name(station)
-	name_lbl.custom_minimum_size = Vector2(72, 0)
+	name_lbl.custom_minimum_size = Vector2(72 if UiScale.scale_factor == 1 else 40, 0)
 	row.add_child(name_lbl)
+	var slot_px: float = 16.0 if UiScale.scale_factor >= 2 else 0.0
 	for i in int(GameState.STATION_SLOTS.get(station, 0)):
 		var slot_id: String = "%s%d" % [station, i]
 		var wid: String = GameState.slots.get(slot_id, "")
 		var btn := Button.new()
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if slot_px > 0.0:
+			btn.custom_minimum_size = Vector2(slot_px, slot_px)
 		btn.text = "—" if wid == "" else _short(GameState.worker_by_id(wid))
 		if wid == "":
 			btn.modulate = _slot_color()
@@ -66,8 +76,14 @@ func _station_row(station: String) -> Control:
 func _worker_row(w: Worker) -> Control:
 	var row := CrewRow.new()
 	row.bind(w)
-	row.selected.connect(func(id: String): _select(id))
-	row.long_pressed.connect(func(id: String): _open_card(id))
+	row.selected.connect(func(id: String):
+		if UiScale.scale_factor >= 2:
+			_open_card(id)
+		else:
+			_select(id)
+	)
+	if UiScale.scale_factor == 1:
+		row.long_pressed.connect(func(id: String): _open_card(id))
 	if w.id == _selected_id:
 		row.modulate = row.modulate.lightened(0.25)
 	return row
@@ -147,9 +163,7 @@ func _short(w: Worker) -> String:
 	if w == null:
 		return "—"
 	var n: String = w.callsign if not w.callsign.is_empty() else w.full_name
-	if n.length() > 8:
-		n = n.substr(0, 7) + "…"
-	return n
+	return Fmt.name(n, UiScale.metric("max_name_chars"))
 
 
 func _slot_color() -> Color:
@@ -158,5 +172,5 @@ func _slot_color() -> Color:
 
 func _spacer() -> Control:
 	var s := Control.new()
-	s.custom_minimum_size = Vector2(0, 6)
+	s.custom_minimum_size = Vector2(0, float(UiScale.metric("gap")))
 	return s
